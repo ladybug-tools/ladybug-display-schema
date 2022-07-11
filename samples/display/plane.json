@@ -1,0 +1,18 @@
+{
+    "type": "DisplayPlane",
+    "geometry": {
+        "type": "Plane",
+        "o": [1, 2, 3],
+        "n": [0, 0, 1],
+        "x": [1, 0, 0]
+    },
+    "color": {
+        "type": "Color",
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+    },
+    "show_axes": true,
+    "show_grid": true
+}

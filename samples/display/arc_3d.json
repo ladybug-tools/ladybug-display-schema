@@ -1,0 +1,22 @@
+{
+    "type": "DisplayArc3D",
+    "geometry": {
+        "type": "Arc3D",
+        "plane": {
+            "type": "Plane",
+            "o": [1, 2, 3],
+            "n": [0, 0, 1],
+            "x": [1, 0, 0]
+        },
+        "radius": 3
+    },
+    "color": {
+        "type": "Color",
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+    },
+    "line_width": 1,
+    "line_type": "Dashed"
+}

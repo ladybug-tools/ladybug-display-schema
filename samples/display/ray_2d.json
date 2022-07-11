@@ -1,0 +1,15 @@
+{
+    "type": "DisplayRay2D",
+    "geometry": {
+        "type": "Ray2D",
+        "p": [1, 2],
+        "v": [0, 0]
+    },
+    "color": {
+        "type": "Color",
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+    }
+}
