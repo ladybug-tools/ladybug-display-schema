@@ -1,0 +1,16 @@
+{
+    "type": "DisplayVector3D",
+    "geometry": {
+        "type": "Vector3D",
+        "x": 1,
+        "y": 2,
+        "z": 3
+    },
+    "color": {
+        "type": "Color",
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+    }
+}
