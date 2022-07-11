@@ -6,20 +6,17 @@ class Vector3D(BaseModel):
 
     type: constr(regex='^Vector3D$') = 'Vector3D'
 
-    x_coord: float = Field(
+    x: float = Field(
         ...,
-        description='Number for X coordinate.',
-        alias='x'
+        description='Number for X coordinate.'
     )
 
-    y_coord: float = Field(
+    y: float = Field(
         ...,
-        description='Number for Y coordinate.',
-        alias='y'
+        description='Number for Y coordinate.'
     )
 
-    z_coord: float = Field(
+    z: float = Field(
         ...,
-        description='Number for Z coordinate.',
-        alias='z'
+        description='Number for Z coordinate.'
     )
