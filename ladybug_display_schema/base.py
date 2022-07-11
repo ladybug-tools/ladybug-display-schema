@@ -1,26 +1,18 @@
 """Base class for all objects requiring a valid names for all engines."""
+from enum import Enum
+from typing import Union
 from pydantic import BaseModel, Field, Extra, constr
 
 
-class DisplayBaseModel(BaseModel):
-    """Base class for all Geometric Display objects."""
+class NoExtraBaseModel(BaseModel):
+    """Base class for all objects that are not extensible with additional keys."""
 
     class Config:
         extra = Extra.forbid
 
-    user_data: dict = Field(
-        default=None,
-        description='Optional dictionary of user data associated with the object.'
-        'All keys and values of this dictionary should be of a standard data '
-        'type to ensure correct serialization of the object (eg. str, float, '
-        'int, list).'
-    )
 
-
-class Color(BaseModel):
-
-    class Config:
-        extra = Extra.forbid
+class Color(NoExtraBaseModel):
+    """A RGB color."""
 
     type: constr(regex='^Color$') = 'Color'
 
@@ -51,4 +43,65 @@ class Color(BaseModel):
         le=255,
         description='Value for the alpha channel, which defines the opacity as a '
         'number between 0 (fully transparent) and 255 (fully opaque).'
+    )
+
+
+class Default(NoExtraBaseModel):
+    """Object to signify when the default value of a visual interface should be used."""
+
+    type: constr(regex='^Default$') = 'Default'
+
+
+class LineTypes(str, Enum):
+    continuous = 'Continuous'
+    dashed = 'Dashed'
+    dots = 'Dotted'
+    dash_dot = 'DashDot'
+    center = 'Center'
+    border = 'Border'
+    hidden = 'Hidden'
+
+
+class DisplayModes(str, Enum):
+    shaded = 'Shaded'
+    surface = 'Surface'
+    surface_with_edges = 'SurfaceWithEdges'
+    wireframe = 'Wireframe'
+
+
+class DisplayBaseModel(NoExtraBaseModel):
+    """Base class for all Geometric Display objects."""
+
+    user_data: dict = Field(
+        default=None,
+        description='Optional dictionary of user data associated with the object.'
+        'All keys and values of this dictionary should be of a standard data '
+        'type to ensure correct serialization of the object (eg. str, float, '
+        'int, list).'
+    )
+
+
+class SingleColorBase(DisplayBaseModel):
+    """Base class for all Geometric Display objects with a single color."""
+
+    color: Color = Field(
+        ...,
+        description='Color for the geometry.'
+    )
+
+
+class LineCurveBase(SingleColorBase):
+    """Base class for all Geometric Display objects with a line like properties."""
+
+    line_width: Union[Default, float] = Field(
+        Default(),
+        ge=0,
+        description='Number for line width in pixels (for the screen) or '
+        'millimeters (in print). Set to zero to hide the geometry.'
+    )
+
+    line_type: LineTypes = Field(
+        LineTypes.continuous,
+        description='Text to indicate the type of line to display (dashed, dotted, '
+        'etc.). The LineTypes enumeration contains all acceptable types.'
     )

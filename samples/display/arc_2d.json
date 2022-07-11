@@ -1,0 +1,17 @@
+{
+    "type": "DisplayArc2D",
+    "geometry": {
+        "type": "Arc2D",
+        "c": [1, 2],
+        "r": 3
+    },
+    "color": {
+        "type": "Color",
+        "r": 255,
+        "g": 0,
+        "b": 0,
+        "a": 255
+    },
+    "line_width": 1,
+    "line_type": "Dashed"
+}
