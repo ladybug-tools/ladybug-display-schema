@@ -5,8 +5,17 @@ from pkg_resources import get_distribution
 
 from pydantic_openapi_helper.core import get_openapi
 from pydantic_openapi_helper.inheritance import class_mapper
-from ladybug_display_schema.geometry3d import Vector3D
-from ladybug_display_schema.display3d import DisplayVector3D
+from ladybug_display_schema.geometry2d import Vector2D, Point2D, Ray2D, LineSegment2D, \
+    Polyline2D, Arc2D, Polygon2D, Mesh2D
+from ladybug_display_schema.geometry3d import Vector3D, Point3D, Ray3D, Plane, \
+    LineSegment3D, Polyline3D, Arc3D, Face3D, Mesh3D, Polyface3D, Sphere, Cone, Cylinder
+from ladybug_display_schema.display2d import DisplayVector2D, DisplayPoint2D, \
+    DisplayRay2D, DisplayLineSegment2D, DisplayPolyline2D, DisplayArc2D, \
+    DisplayPolygon2D, DisplayMesh2D
+from ladybug_display_schema.display3d import DisplayVector3D, DisplayPoint3D, \
+    DisplayRay3D, DisplayPlane, DisplayLineSegment3D, DisplayPolyline3D, DisplayArc3D, \
+    DisplayFace3D, DisplayMesh3D, DisplayPolyface3D, DisplaySphere, DisplayCone, \
+    DisplayCylinder
 
 parser = argparse.ArgumentParser(description='Generate OpenAPI JSON schemas')
 
@@ -39,9 +48,23 @@ info = {
     }
 }
 
+all_geo = [
+    Vector2D, Point2D, Ray2D, LineSegment2D, Polyline2D, Arc2D, Polygon2D, Mesh2D,
+    Vector3D, Point3D, Ray3D, Plane, LineSegment3D, Polyline3D, Arc3D, Face3D, Mesh3D,
+    Polyface3D, Sphere, Cone, Cylinder
+]
+
+all_dis = [
+    DisplayVector2D, DisplayPoint2D, DisplayRay2D, DisplayLineSegment2D,
+    DisplayPolyline2D, DisplayArc2D, DisplayPolygon2D, DisplayMesh2D,
+    DisplayVector3D, DisplayPoint3D, DisplayRay3D, DisplayPlane, DisplayLineSegment3D,
+    DisplayPolyline3D, DisplayArc3D, DisplayFace3D, DisplayMesh3D,
+    DisplayPolyface3D, DisplaySphere, DisplayCone, DisplayCylinder
+]
+
 modules = [
-    {'module': [Vector3D], 'name': 'Geometry'},
-    {'module': [DisplayVector3D], 'name': 'Display'},
+    {'module': all_geo, 'name': 'Geometry'},
+    {'module': all_dis, 'name': 'Display'},
 ]
 
 
