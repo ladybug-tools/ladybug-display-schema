@@ -16,6 +16,7 @@ from ladybug_display_schema.display3d import DisplayVector3D, DisplayPoint3D, \
     DisplayRay3D, DisplayPlane, DisplayLineSegment3D, DisplayPolyline3D, DisplayArc3D, \
     DisplayFace3D, DisplayMesh3D, DisplayPolyface3D, DisplaySphere, DisplayCone, \
     DisplayCylinder
+from ladybug_display_schema.graphic import GraphicContainer
 
 parser = argparse.ArgumentParser(description='Generate OpenAPI JSON schemas')
 
@@ -65,6 +66,7 @@ all_dis = [
 modules = [
     {'module': all_geo, 'name': 'Geometry'},
     {'module': all_dis, 'name': 'Display'},
+    {'module': [GraphicContainer], 'name': 'Graphic'}
 ]
 
 

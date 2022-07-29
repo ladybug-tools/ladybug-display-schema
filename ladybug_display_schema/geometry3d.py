@@ -297,7 +297,7 @@ class Sphere(NoExtraBaseModel):
 class Cone(NoExtraBaseModel):
     """A cone object."""
 
-    type: constr(regex='^Cone$') = 'Sphere'
+    type: constr(regex='^Cone$') = 'Cone'
 
     vertex: List[float] = Field(
         ...,

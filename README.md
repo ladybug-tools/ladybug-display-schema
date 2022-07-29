@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.com/ladybug-tools/ladybug-display-schema.svg?branch=master)](https://travis-ci.com/ladybug-tools/ladybug-display-schema)
-[![Coverage Status](https://coveralls.io/repos/github/ladybug-tools/ladybug-display-schema/badge.svg?branch=master)](https://coveralls.io/github/ladybug-tools/ladybug-display-schema)
+[![Build Status](https://github.com/ladybug-tools/ladybug-display-schema/workflows/CI/badge.svg)](https://github.com/ladybug-tools/ladybug-display-schema/actions)
 
 [![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-370/)
 
