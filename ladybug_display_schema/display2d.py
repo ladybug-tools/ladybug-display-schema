@@ -1,9 +1,9 @@
 """Schemas for geometric display objects in 2D space."""
-from typing import List
+from typing import List, Union
 from pydantic import Field, constr, root_validator
 
 from .base import DisplayBaseModel, SingleColorBase, LineCurveBase, \
-    Color, DisplayModes
+    Color, DisplayModes, Default
 from .geometry2d import Vector2D, Point2D, Ray2D, LineSegment2D, \
     Polyline2D, Arc2D, Polygon2D, Mesh2D
 
@@ -27,6 +27,13 @@ class DisplayPoint2D(SingleColorBase):
     geometry: Point2D = Field(
         ...,
         description='Point2D for the geometry.'
+    )
+
+    radius: Union[Default, float] = Field(
+        Default(),
+        ge=0,
+        description='Number for the radius with which the point should be displayed '
+        'in pixels (for the screen) or millimeters (in print).'
     )
 
 
