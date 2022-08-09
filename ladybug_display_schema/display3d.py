@@ -1,9 +1,9 @@
 """Schemas for geometric display objects in 3D space."""
-from typing import List
+from typing import List, Union
 from pydantic import Field, constr, root_validator
 
 from .base import DisplayBaseModel, SingleColorBase, LineCurveBase, \
-    Color, DisplayModes
+    Color, DisplayModes, Default
 from .geometry3d import Vector3D, Point3D, Ray3D, Plane, LineSegment3D, \
     Polyline3D, Arc3D, Face3D, Mesh3D, Polyface3D, Sphere, Cone, Cylinder
 
@@ -27,6 +27,13 @@ class DisplayPoint3D(SingleColorBase):
     geometry: Point3D = Field(
         ...,
         description='Point3D for the geometry.'
+    )
+
+    radius: Union[Default, float] = Field(
+        Default(),
+        ge=0,
+        description='Number for the radius with which the point should be displayed '
+        'in pixels (for the screen) or millimeters (in print).'
     )
 
 
