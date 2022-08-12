@@ -72,6 +72,13 @@ class DisplayModes(str, Enum):
 class DisplayBaseModel(NoExtraBaseModel):
     """Base class for all Geometric Display objects."""
 
+    layer: str = Field(
+        default=None,
+        description='Optional text for the layer on which the geometry exists. '
+        'Sub-layers should be separated from parent layers by means of a :: and '
+        'platforms that support sub-layers will interpret the layer as such.'
+    )
+
     user_data: dict = Field(
         default=None,
         description='Optional dictionary of user data associated with the object.'

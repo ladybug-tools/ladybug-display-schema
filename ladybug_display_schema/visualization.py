@@ -1,4 +1,4 @@
-"""Graphic container used to get legends, titles, and colors for any graphic."""
+"""VisualizationSet used to align geometry with data and get legends, titles, colors."""
 from typing import List, Union
 from enum import Enum
 from pydantic import Field, constr, conint, root_validator
@@ -8,6 +8,26 @@ from .geometry2d import Vector2D, Point2D, Ray2D, LineSegment2D, \
     Polyline2D, Arc2D, Polygon2D, Mesh2D
 from .geometry3d import Vector3D, Point3D, Ray3D, Plane, LineSegment3D, \
     Polyline3D, Arc3D, Face3D, Mesh3D, Polyface3D, Sphere, Cone, Cylinder
+from .display2d import DisplayVector2D, DisplayPoint2D, \
+    DisplayRay2D, DisplayLineSegment2D, DisplayPolyline2D, DisplayArc2D, \
+    DisplayPolygon2D, DisplayMesh2D
+from .display3d import DisplayVector3D, DisplayPoint3D, \
+    DisplayRay3D, DisplayPlane, DisplayLineSegment3D, DisplayPolyline3D, DisplayArc3D, \
+    DisplayFace3D, DisplayMesh3D, DisplayPolyface3D, DisplaySphere, DisplayCone, \
+    DisplayCylinder
+
+GEOMETRY_UNION = Union[
+    Vector2D, Point2D, Ray2D, LineSegment2D, Polyline2D, Arc2D, Polygon2D,
+    Mesh2D, Vector3D, Point3D, Ray3D, Plane, LineSegment3D,
+    Polyline3D, Arc3D, Face3D, Mesh3D, Polyface3D, Sphere, Cone, Cylinder
+]
+DISPLAY_UNION = Union[
+    DisplayVector2D, DisplayPoint2D, DisplayRay2D, DisplayLineSegment2D,
+    DisplayPolyline2D, DisplayArc2D, DisplayPolygon2D, DisplayMesh2D,
+    DisplayVector3D, DisplayPoint3D, DisplayRay3D, DisplayPlane, DisplayLineSegment3D,
+    DisplayPolyline3D, DisplayArc3D, DisplayFace3D, DisplayMesh3D,
+    DisplayPolyface3D, DisplaySphere, DisplayCone, DisplayCylinder
+]
 
 
 class LegendParameters(NoExtraBaseModel):
@@ -230,46 +250,16 @@ class DataType(NoExtraBaseModel):
     )
 
 
-class GraphicContainer(NoExtraBaseModel):
-    """Graphic container used to get legends, titles, and colors for any graphic."""
+class VisualizationData(NoExtraBaseModel):
+    """Represents a data set for visualization with legend parameters and data type."""
 
-    type: constr(regex='^GraphicContainer$') = 'GraphicContainer'
+    type: constr(regex='^VisualizationData$') = 'VisualizationData'
 
     values: List[float] = Field(
         ...,
         min_items=1,
-        description='An list of numerical values that will be used to generate '
-        'the legend and colors.'
-    )
-
-    geometry: Union[Mesh2D, Mesh3D, Polyface3D, List[Union[
-        Vector2D, Point2D, Ray2D, LineSegment2D, Polyline2D, Arc2D, Polygon2D,
-        Mesh2D, Vector3D, Point3D, Ray3D, Plane, LineSegment3D,
-        Polyline3D, Arc3D, Face3D, Mesh3D, Polyface3D, Sphere, Cone, Cylinder
-    ]]] = Field(
-        None,
-        description='An optional ladybug-geometry object (or list of ladybug-geometry '
-        'objects) that is aligned with the input values. If a Mesh or Polyface '
-        'is specified here, it is expected that the number of values match the '
-        'number of faces or the number of vertices. If a list of geometry objects '
-        'is specified (ie. a list of Point3Ds), it is expected that the length '
-        'of this list align with the number of values.'
-    )
-
-    min_point: Point3D = Field(
-        None,
-        description='A Point3D object for the minimum of the bounding box around '
-        'the graphic geometry. If None, then there must be an input for geometry '
-        'and the bounding box around this geometry will be used to set up the '
-        'graphic container.'
-    )
-
-    max_point: Point3D = Field(
-        None,
-        description='A Point3D object for the maximum of the  bounding box around '
-        'the graphic geometry. If None, then there must be an input for geometry '
-        'and the bounding box around this geometry will be used to set up the '
-        'graphic container.'
+        description='A list of numerical values that will be used to generate '
+        'the visualization colors.'
     )
 
     legend_parameters: LegendParameters = Field(
@@ -293,28 +283,75 @@ class GraphicContainer(NoExtraBaseModel):
         'If None, the default units of the data_type will be used.'
     )
 
+
+class AnalysisGeometry(NoExtraBaseModel):
+    """An object where multiple data streams correspond to the same geometry."""
+
+    type: constr(regex='^AnalysisGeometry$') = 'AnalysisGeometry'
+
+    geometry: Union[Mesh2D, Mesh3D, Polyface3D, List[GEOMETRY_UNION]] = Field(
+        ...,
+        description='A ladybug-geometry object or list of ladybug-geometry objects that '
+        'is aligned with the values in the input data_sets. If a Mesh or Polyface '
+        'is specified here, it is expected that the number of values match the '
+        'number of faces or the number of vertices. If a list of geometry objects '
+        'is specified (ie. a list of Point3Ds), it is expected that the length '
+        'of this list align with the number of values.'
+    )
+
+    data_sets: List[VisualizationData] = Field(
+        ...,
+        min_items=1,
+        description='An list of VisualizationData objects representing the data sets '
+        'that are associated with the input geometry.'
+    )
+
+    active_data: int = Field(
+        0,
+        description='An integer to denote which of the input data_sets should be '
+        'displayed by default.'
+    )
+
     @root_validator
     def check_values_align(cls, obj_props):
         """Check that values and geometry align."""
-        values, geo = obj_props.get('values'), obj_props.get('geometry')
-        if isinstance(geo, (Mesh2D, Mesh3D, Polyface3D)):
-            if isinstance(geo, (Mesh2D, Mesh3D)):
-                assert len(values) == len(geo.faces) or len(values) == \
-                    len(geo.vertices), 'Expected number of values ({}) to match ' \
-                    'number of faces ({}) or number of vertices ({}).'.format(
-                        len(values), len(geo.faces), len(geo.vertices))
-            else:  # it's a Polyface3D
-                assert len(values) == len(geo.face_indices) or len(values) == \
-                    len(geo.vertices), 'Expected number of values ({}) to match ' \
-                    'number of faces ({}) or number of vertices ({}).'.format(
-                        len(values), len(geo.face_indices), len(geo.vertices))
-        else:  # make sure that there are min and max points
-            min_point, max_point = obj_props.get('min_point'), obj_props.get('max_point')
-            assert min_point is not None and max_point is not None, \
-                'If min_point or max_point are unspecified, then geometry must be a ' \
-                'Mesh or Polyface to determine the bounding box.'
-            if isinstance(geo, (list, tuple)):
+        data_sets, geo = obj_props.get('data_sets'), obj_props.get('geometry')
+        for data in data_sets:
+            values = data.values
+            if isinstance(geo, (Mesh2D, Mesh3D, Polyface3D)):
+                if isinstance(geo, (Mesh2D, Mesh3D)):
+                    assert len(values) == len(geo.faces) or len(values) == \
+                        len(geo.vertices), 'Expected number of values ({}) to match ' \
+                        'number of faces ({}) or number of vertices ({}).'.format(
+                            len(values), len(geo.faces), len(geo.vertices))
+                else:  # it's a Polyface3D
+                    assert len(values) == len(geo.face_indices) or len(values) == \
+                        len(geo.vertices), 'Expected number of values ({}) to match ' \
+                        'number of faces ({}) or number of vertices ({}).'.format(
+                            len(values), len(geo.face_indices), len(geo.vertices))
+            else:
                 assert len(values) == len(geo), 'Expected one value per geometry ' \
                     'when geometry is a list. Number of values ({}) does not match ' \
                     'number of geometries ({}).'.format(len(values), len(geo))
         return obj_props
+
+
+class VisualizationSet(NoExtraBaseModel):
+    """A visualization set containing analysis and context geometry to be visualized."""
+
+    type: constr(regex='^VisualizationSet$') = 'VisualizationSet'
+
+    analysis_geometry: AnalysisGeometry = Field(
+        None,
+        description='An AnalysisGeometry object for spatial data that should be '
+        'displayed in the visualization.'
+    )
+
+    context_geometry: List[DISPLAY_UNION] = Field(
+        None,
+        description='An optional list of ladybug-geometry or ladybug-display objects '
+        'that gives context to the analysis geometry or other aspects of the '
+        'visualization. Typically, these will display in wireframe around the '
+        'geometry, though the properties of display geometry can be used to '
+        'customize the visualization.'
+    )
