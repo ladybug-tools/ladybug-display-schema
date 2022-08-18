@@ -289,14 +289,15 @@ class AnalysisGeometry(NoExtraBaseModel):
 
     type: constr(regex='^AnalysisGeometry$') = 'AnalysisGeometry'
 
-    geometry: Union[Mesh2D, Mesh3D, Polyface3D, List[GEOMETRY_UNION]] = Field(
+    geometry: List[GEOMETRY_UNION] = Field(
         ...,
-        description='A ladybug-geometry object or list of ladybug-geometry objects that '
-        'is aligned with the values in the input data_sets. If a Mesh or Polyface '
-        'is specified here, it is expected that the number of values match the '
-        'number of faces or the number of vertices. If a list of geometry objects '
-        'is specified (ie. a list of Point3Ds), it is expected that the length '
-        'of this list align with the number of values.'
+        description='A list of ladybug-geometry objects that is aligned with the '
+        'values in the input data_sets. The length of this list should usually be equal '
+        'to the total number of values in each data_set, indicating that each geometry '
+        'gets a single color. Alternatively, if all of the geometry objects are '
+        'meshes or polyfaces, the number of values in the data can be equal to the '
+        'total number of faces across the meshes/polyfaces or the total number of '
+        'vertices across the meshes/polyfaces.'
     )
 
     data_sets: List[VisualizationData] = Field(
@@ -315,24 +316,21 @@ class AnalysisGeometry(NoExtraBaseModel):
     @root_validator
     def check_values_align(cls, obj_props):
         """Check that values and geometry align."""
-        data_sets, geo = obj_props.get('data_sets'), obj_props.get('geometry')
-        for data in data_sets:
-            values = data.values
+        data_sets, geos = obj_props.get('data_sets'), obj_props.get('geometry')
+        geo_count_0, geo_count_1, geo_count_2 = len(geos), 0, 0
+        for geo in geos:
             if isinstance(geo, (Mesh2D, Mesh3D, Polyface3D)):
                 if isinstance(geo, (Mesh2D, Mesh3D)):
-                    assert len(values) == len(geo.faces) or len(values) == \
-                        len(geo.vertices), 'Expected number of values ({}) to match ' \
-                        'number of faces ({}) or number of vertices ({}).'.format(
-                            len(values), len(geo.faces), len(geo.vertices))
+                    geo_count_1 += len(geo.faces)
                 else:  # it's a Polyface3D
-                    assert len(values) == len(geo.face_indices) or len(values) == \
-                        len(geo.vertices), 'Expected number of values ({}) to match ' \
-                        'number of faces ({}) or number of vertices ({}).'.format(
-                            len(values), len(geo.face_indices), len(geo.vertices))
-            else:
-                assert len(values) == len(geo), 'Expected one value per geometry ' \
-                    'when geometry is a list. Number of values ({}) does not match ' \
-                    'number of geometries ({}).'.format(len(values), len(geo))
+                    geo_count_1 += len(geo.face_indices)
+                geo_count_2 += len(geo.vertices)
+        possible_lens = (geo_count_0, geo_count_1, geo_count_2)
+        for data in data_sets:
+            assert len(data.values) in possible_lens, 'Expected number of values ({}) ' \
+                'to align with the number of geometries ({}), the number of ' \
+                'geometry faces ({}), or the number of geometry vertices ({}).'.format(
+                    len(data.values), geo_count_0, geo_count_1, geo_count_2)
         return obj_props
 
 
