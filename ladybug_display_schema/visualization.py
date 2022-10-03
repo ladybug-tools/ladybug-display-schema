@@ -134,6 +134,14 @@ class LegendParameters(NoExtraBaseModel):
         'access to fonts.'
     )
 
+    user_data: dict = Field(
+        default=None,
+        description='Optional dictionary of user data associated with the object.'
+        'All keys and values of this dictionary should be of a standard data '
+        'type to ensure correct serialization of the object (eg. str, float, '
+        'int, list).'
+    )
+
 
 class DataTypes(str, Enum):
     activity_level = 'ActivityLevel'
@@ -283,6 +291,14 @@ class VisualizationData(NoExtraBaseModel):
         'If None, the default units of the data_type will be used.'
     )
 
+    user_data: dict = Field(
+        default=None,
+        description='Optional dictionary of user data associated with the object.'
+        'All keys and values of this dictionary should be of a standard data '
+        'type to ensure correct serialization of the object (eg. str, float, '
+        'int, list).'
+    )
+
 
 class AnalysisGeometry(NoExtraBaseModel):
     """An object where multiple data streams correspond to the same geometry."""
@@ -295,9 +311,8 @@ class AnalysisGeometry(NoExtraBaseModel):
         'values in the input data_sets. The length of this list should usually be equal '
         'to the total number of values in each data_set, indicating that each geometry '
         'gets a single color. Alternatively, if all of the geometry objects are '
-        'meshes or polyfaces, the number of values in the data can be equal to the '
-        'total number of faces across the meshes/polyfaces or the total number of '
-        'vertices across the meshes/polyfaces.'
+        'meshes, the number of values in the data can be equal to the total number of '
+        'faces across the meshes or the total number of vertices across the meshes.'
     )
 
     data_sets: List[VisualizationData] = Field(
@@ -313,24 +328,33 @@ class AnalysisGeometry(NoExtraBaseModel):
         'displayed by default.'
     )
 
+    user_data: dict = Field(
+        default=None,
+        description='Optional dictionary of user data associated with the object.'
+        'All keys and values of this dictionary should be of a standard data '
+        'type to ensure correct serialization of the object (eg. str, float, '
+        'int, list).'
+    )
+
     @root_validator
     def check_values_align(cls, obj_props):
         """Check that values and geometry align."""
         data_sets, geos = obj_props.get('data_sets'), obj_props.get('geometry')
         geo_count_0, geo_count_1, geo_count_2 = len(geos), 0, 0
         for geo in geos:
-            if isinstance(geo, (Mesh2D, Mesh3D, Polyface3D)):
-                if isinstance(geo, (Mesh2D, Mesh3D)):
-                    geo_count_1 += len(geo.faces)
-                else:  # it's a Polyface3D
-                    geo_count_1 += len(geo.face_indices)
+            if isinstance(geo, (Mesh2D, Mesh3D)):
+                geo_count_1 += len(geo.faces)
                 geo_count_2 += len(geo.vertices)
         possible_lens = (geo_count_0, geo_count_1, geo_count_2)
-        for data in data_sets:
-            assert len(data.values) in possible_lens, 'Expected number of values ({}) ' \
-                'to align with the number of geometries ({}), the number of ' \
-                'geometry faces ({}), or the number of geometry vertices ({}).'.format(
-                    len(data.values), geo_count_0, geo_count_1, geo_count_2)
+        assert len(data_sets[0].values) in possible_lens, 'Expected number of values' \
+            ' ({}) to align with the number of geometries ({}), the number of ' \
+            'mesh faces ({}), or the number of mesh vertices ({}).'.format(
+                len(data_sets[0].values), geo_count_0, geo_count_1, geo_count_2)
+        ref_len = len(data_sets[0].values)
+        for data in data_sets[1:]:
+            assert len(data.values) == ref_len, 'Expected all data sets of ' \
+                'AnalysisGeometry to have the same length. {} != {}.'.format(
+                    len(data.values), ref_len)
         return obj_props
 
 
@@ -339,10 +363,13 @@ class VisualizationSet(NoExtraBaseModel):
 
     type: constr(regex='^VisualizationSet$') = 'VisualizationSet'
 
-    analysis_geometry: AnalysisGeometry = Field(
+    analysis_geometry: List[AnalysisGeometry] = Field(
         None,
-        description='An AnalysisGeometry object for spatial data that should be '
-        'displayed in the visualization.'
+        description='A list of AnalysisGeometry objects for spatial data that is '
+        'displayed in the visualization. Multiple AnalysisGeometry objects can '
+        'be used to specify different related studies that were run to create '
+        'the visualization (eg. a radiation study of windows next to a daylight '
+        'study of interior floor plates).'
     )
 
     context_geometry: List[DISPLAY_UNION] = Field(
@@ -352,4 +379,12 @@ class VisualizationSet(NoExtraBaseModel):
         'visualization. Typically, these will display in wireframe around the '
         'geometry, though the properties of display geometry can be used to '
         'customize the visualization.'
+    )
+
+    user_data: dict = Field(
+        default=None,
+        description='Optional dictionary of user data associated with the object.'
+        'All keys and values of this dictionary should be of a standard data '
+        'type to ensure correct serialization of the object (eg. str, float, '
+        'int, list).'
     )
