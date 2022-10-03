@@ -64,9 +64,9 @@ all_dis = [
 ]
 
 modules = [
+    {'module': [VisualizationSet], 'name': 'Visualization'},
     {'module': all_geo, 'name': 'Geometry'},
-    {'module': all_dis, 'name': 'Display'},
-    {'module': [VisualizationSet], 'name': 'Visualization'}
+    {'module': all_dis, 'name': 'Display'}
 ]
 
 
@@ -77,7 +77,7 @@ def _process_name(name):
 
 
 for module in modules:
-    # generate Recipe open api schema
+    # generate open api schema
     print(f'Generating {module["name"]} documentation...')
 
     external_docs = {
@@ -115,3 +115,24 @@ for module in modules:
     # add the mapper file
     with open(f'./docs/{_process_name(module["name"])}_mapper.json', 'w') as out_file:
         json.dump(class_mapper(module['module']), out_file, indent=2)
+
+# generate schema for mode with inheritance but without descriminator
+# we will use this file for generating redocly - the full model is too big, and the
+# model with inheritance and discriminators is renders incorrectly
+external_docs = {
+    "description": "OpenAPI Specification with Inheritance",
+    "url": "./visualization_inheritance.json"
+}
+
+openapi = get_openapi(
+    [VisualizationSet],
+    title='Ladybug Visualization Schema',
+    description='Documentation for Honeybee model schema',
+    version=VERSION, info=info,
+    inheritance=True,
+    external_docs=external_docs,
+    add_discriminator=False
+)
+
+with open('./docs/visualization_redoc.json', 'w') as out_file:
+    json.dump(openapi, out_file, indent=2)
