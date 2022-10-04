@@ -105,6 +105,7 @@ jobs:
       - name: generate docs
         run: |
           python docs.py --version ${{needs.deploy.outputs.tag}}
+          redoc-cli bundle ./docs/visualization_redoc.json -o ./docs/visualization.html
 
       - name: deploy to github pages
         uses: peaceiris/actions-gh-pages@v3
