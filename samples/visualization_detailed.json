@@ -629,14 +629,14 @@
                     "legend_parameters": {
                         "vertical": true, 
                         "font": "Arial", 
-                        "max": 200, 
+                        "max": 151, 
                         "include_larger_smaller": false, 
                         "decimal_count": 0, 
                         "type": "LegendParameters", 
                         "ordinal_dictionary": null, 
                         "continuous_legend": false, 
                         "segment_count": 5, 
-                        "min": 0
+                        "min": 147
                     }, 
                     "unit": "W/m2", 
                     "type": "VisualizationData", 
@@ -12395,7 +12395,7 @@
                     "legend_parameters": {
                         "vertical": true, 
                         "font": "Arial", 
-                        "max": 1000, 
+                        "max": 720, 
                         "include_larger_smaller": false, 
                         "decimal_count": 0, 
                         "colors": [
@@ -12417,7 +12417,7 @@
                         "type": "LegendParameters", 
                         "ordinal_dictionary": null, 
                         "continuous_legend": false, 
-                        "min": 0
+                        "min": 420
                     }, 
                     "unit": "\u03bcmol/m2-s", 
                     "type": "VisualizationData", 
@@ -16214,13 +16214,13 @@
                     "legend_parameters": {
                         "vertical": true, 
                         "font": "Arial", 
-                        "max": 1400, 
+                        "max": 160, 
                         "include_larger_smaller": false, 
                         "decimal_count": 2, 
                         "type": "LegendParameters", 
                         "ordinal_dictionary": null, 
                         "continuous_legend": false, 
-                        "min": 0
+                        "min": 100
                     }, 
                     "unit": "W/m2", 
                     "type": "VisualizationData", 
