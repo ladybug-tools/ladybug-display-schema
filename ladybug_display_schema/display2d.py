@@ -92,8 +92,8 @@ class DisplayPolygon2D(SingleColorBase):
     )
 
     display_mode: DisplayModes = Field(
-        DisplayModes.shaded,
-        description='Text to indicate the display mode (shaded, wireframe, '
+        DisplayModes.surface,
+        description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
@@ -116,8 +116,8 @@ class DisplayMesh2D(DisplayBaseModel):
     )
 
     display_mode: DisplayModes = Field(
-        DisplayModes.shaded,
-        description='Text to indicate the display mode (shaded, wireframe, '
+        DisplayModes.surface,
+        description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 

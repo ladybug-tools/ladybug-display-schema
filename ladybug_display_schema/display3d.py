@@ -115,8 +115,8 @@ class DisplayFace3D(SingleColorBase):
     )
 
     display_mode: DisplayModes = Field(
-        DisplayModes.shaded,
-        description='Text to indicate the display mode (shaded, wireframe, '
+        DisplayModes.surface,
+        description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
@@ -139,8 +139,8 @@ class DisplayMesh3D(DisplayBaseModel):
     )
 
     display_mode: DisplayModes = Field(
-        DisplayModes.shaded,
-        description='Text to indicate the display mode (shaded, wireframe, '
+        DisplayModes.surface,
+        description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
@@ -178,8 +178,8 @@ class DisplayPolyface3D(DisplayBaseModel):
     )
 
     display_mode: DisplayModes = Field(
-        DisplayModes.shaded,
-        description='Text to indicate the display mode (shaded, wireframe, '
+        DisplayModes.surface,
+        description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
@@ -210,8 +210,8 @@ class DisplaySphere(SingleColorBase):
     )
 
     display_mode: DisplayModes = Field(
-        DisplayModes.shaded,
-        description='Text to indicate the display mode (shaded, wireframe, '
+        DisplayModes.surface,
+        description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
@@ -227,8 +227,8 @@ class DisplayCone(SingleColorBase):
     )
 
     display_mode: DisplayModes = Field(
-        DisplayModes.shaded,
-        description='Text to indicate the display mode (shaded, wireframe, '
+        DisplayModes.surface,
+        description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
@@ -244,7 +244,7 @@ class DisplayCylinder(SingleColorBase):
     )
 
     display_mode: DisplayModes = Field(
-        DisplayModes.shaded,
-        description='Text to indicate the display mode (shaded, wireframe, '
+        DisplayModes.surface,
+        description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )

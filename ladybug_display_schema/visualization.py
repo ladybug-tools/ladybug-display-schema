@@ -3,7 +3,7 @@ from typing import List, Union
 from enum import Enum
 from pydantic import Field, constr, conint, root_validator
 
-from .base import NoExtraBaseModel, Default, Color
+from .base import DisplayModes, NoExtraBaseModel, Default, Color
 from .geometry2d import Vector2D, Point2D, Ray2D, LineSegment2D, \
     Polyline2D, Arc2D, Polygon2D, Mesh2D
 from .geometry3d import Vector3D, Point3D, Ray3D, Plane, LineSegment3D, \
@@ -258,6 +258,57 @@ class DataType(NoExtraBaseModel):
     )
 
 
+class GenericDataType(DataType):
+    """Generic data type representation."""
+
+    data_type: constr(regex='^GenericType$') = 'GenericType'
+
+    base_unit: str = Field(
+        ...,
+        description='Text string for the base unit of the data type, which '
+        'should be standard SI units where possible.'
+    )
+
+    min: Union[Default, float] = Field(
+        Default(),
+        description='Optional lower limit for the data type, values below which '
+        'should be physically or mathematically impossible. (Default: -inf)'
+    )
+
+    max: Union[Default, float] = Field(
+        Default(),
+        description='Optional upper limit for the data type, values above which '
+        'should be physically or mathematically impossible. (Default: +inf)'
+    )
+
+    abbreviation: str = Field(
+        '',
+        description='An optional abbreviation for the data type as text.'
+    )
+
+    unit_descr: dict = Field(
+        default=None,
+        description='An optional dictionary describing categories that the numerical '
+        'values of the units relate to. For example: {-1: "Cold", 0: "Neutral", '
+        '+1: "Hot"}; {0: "False", 1: "True"}.'
+    )
+
+    point_in_time: bool = Field(
+        True,
+        description='Boolean to note whether the data type represents conditions '
+        'at a single instant in time (True) as opposed to being an average or '
+        'accumulation over time (False) when it is found in hourly lists of data.'
+    )
+
+    cumulative: bool = Field(
+        False,
+        description='Boolean to tell whether the data type can be cumulative when '
+        'it is represented over time (True) or it can only be averaged over time '
+        'to be meaningful (False). Note that cumulative cannot be True when '
+        'point_in_time is also True.'
+    )
+
+
 class VisualizationData(NoExtraBaseModel):
     """Represents a data set for visualization with legend parameters and data type."""
 
@@ -277,7 +328,7 @@ class VisualizationData(NoExtraBaseModel):
         'will be used.'
     )
 
-    data_type: DataType = Field(
+    data_type: Union[DataType, GenericDataType] = Field(
         None,
         description='Optional DataType from the ladybug datatype subpackage (ie. '
         'Temperature()) , which will be used to assign default legend properties. '
@@ -300,7 +351,37 @@ class VisualizationData(NoExtraBaseModel):
     )
 
 
-class AnalysisGeometry(NoExtraBaseModel):
+class _VisualizationBase(NoExtraBaseModel):
+    """Base class for visualization objects."""
+
+    identifier: str = Field(
+        ...,
+        regex=r'^[.A-Za-z0-9_-]+$',
+        min_length=1,
+        max_length=100,
+        description='Text string for a unique object ID. Must be less than 100 '
+        'characters and not contain spaces or special characters.'
+    )
+
+    display_name: str = Field(
+        default=None,
+        description='Display name of the object with no character restrictions. '
+        'This is typically used to set the layer of the object in the interface that '
+        'renders the VisualizationSet. A :: in the display_name can be used to denote '
+        'sub-layers following a convention of ParentLayer::SubLayer. If not set, '
+        'the display_name will be equal to the object identifier.'
+    )
+
+    user_data: dict = Field(
+        default=None,
+        description='Optional dictionary of user data associated with the object.'
+        'All keys and values of this dictionary should be of a standard data '
+        'type to ensure correct serialization of the object (eg. str, float, '
+        'int, list).'
+    )
+
+
+class AnalysisGeometry(_VisualizationBase):
     """An object where multiple data streams correspond to the same geometry."""
 
     type: constr(regex='^AnalysisGeometry$') = 'AnalysisGeometry'
@@ -328,12 +409,10 @@ class AnalysisGeometry(NoExtraBaseModel):
         'displayed by default.'
     )
 
-    user_data: dict = Field(
-        default=None,
-        description='Optional dictionary of user data associated with the object.'
-        'All keys and values of this dictionary should be of a standard data '
-        'type to ensure correct serialization of the object (eg. str, float, '
-        'int, list).'
+    display_mode: DisplayModes = Field(
+        DisplayModes.surface,
+        description='Text to indicate the display mode (surface, wireframe, '
+        'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
     @root_validator
@@ -358,33 +437,30 @@ class AnalysisGeometry(NoExtraBaseModel):
         return obj_props
 
 
-class VisualizationSet(NoExtraBaseModel):
+class ContextGeometry(_VisualizationBase):
+    """An object representing context geometry to display."""
+
+    type: constr(regex='^ContextGeometry$') = 'ContextGeometry'
+
+    geometry: List[DISPLAY_UNION] = Field(
+        ...,
+        description='A list of ladybug-geometry or ladybug-display objects that gives '
+        'context to analysis geometry or other aspects of the visualization. '
+        'Typically, these will display in wireframe around the geometry, though '
+        'the properties of display geometry can be used to customize the '
+        'visualization.'
+    )
+
+
+class VisualizationSet(_VisualizationBase):
     """A visualization set containing analysis and context geometry to be visualized."""
 
     type: constr(regex='^VisualizationSet$') = 'VisualizationSet'
 
-    analysis_geometry: List[AnalysisGeometry] = Field(
+    geometry: List[Union[AnalysisGeometry, ContextGeometry]] = Field(
         None,
-        description='A list of AnalysisGeometry objects for spatial data that is '
-        'displayed in the visualization. Multiple AnalysisGeometry objects can '
-        'be used to specify different related studies that were run to create '
-        'the visualization (eg. a radiation study of windows next to a daylight '
-        'study of interior floor plates).'
-    )
-
-    context_geometry: List[DISPLAY_UNION] = Field(
-        None,
-        description='An optional list of ladybug-geometry or ladybug-display objects '
-        'that gives context to the analysis geometry or other aspects of the '
-        'visualization. Typically, these will display in wireframe around the '
-        'geometry, though the properties of display geometry can be used to '
-        'customize the visualization.'
-    )
-
-    user_data: dict = Field(
-        default=None,
-        description='Optional dictionary of user data associated with the object.'
-        'All keys and values of this dictionary should be of a standard data '
-        'type to ensure correct serialization of the object (eg. str, float, '
-        'int, list).'
+        description='A list of AnalysisGeometry and ContextGeometry objects to '
+        'display in the visualization. Each geometry object will typically be '
+        'translated to its own layer within the interface that renders the '
+        'VisualizationSet.'
     )

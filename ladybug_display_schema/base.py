@@ -63,10 +63,10 @@ class LineTypes(str, Enum):
 
 
 class DisplayModes(str, Enum):
-    shaded = 'Shaded'
     surface = 'Surface'
     surface_with_edges = 'SurfaceWithEdges'
     wireframe = 'Wireframe'
+    points = 'Points'
 
 
 class DisplayBaseModel(NoExtraBaseModel):
