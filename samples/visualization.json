@@ -1,8 +1,10 @@
 {
     "type": "VisualizationSet",
-    "analysis_geometry": [
+    "identifier": "Simple_Rainbow_Rectangle",
+    "geometry": [
         {
             "type": "AnalysisGeometry",
+            "identifier": "Rainbow_Rectangle",
             "data_sets": [
                 {
                     "type": "VisualizationData",
