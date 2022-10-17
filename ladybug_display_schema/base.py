@@ -69,15 +69,20 @@ class DisplayModes(str, Enum):
     points = 'Points'
 
 
+class HorizontalAlignments(str, Enum):
+    left = 'Left'
+    center = 'Center'
+    right = 'Right'
+
+
+class VerticalAlignments(str, Enum):
+    top = 'Top'
+    middle = 'Middle'
+    bottom = 'Bottom'
+
+
 class DisplayBaseModel(NoExtraBaseModel):
     """Base class for all Geometric Display objects."""
-
-    layer: str = Field(
-        default=None,
-        description='Optional text for the layer on which the geometry exists. '
-        'Sub-layers should be separated from parent layers by means of a :: and '
-        'platforms that support sub-layers will interpret the layer as such.'
-    )
 
     user_data: dict = Field(
         default=None,
