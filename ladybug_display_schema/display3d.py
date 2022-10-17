@@ -3,7 +3,7 @@ from typing import List, Union
 from pydantic import Field, constr, root_validator
 
 from .base import DisplayBaseModel, SingleColorBase, LineCurveBase, \
-    Color, DisplayModes, Default
+    Color, DisplayModes, HorizontalAlignments, VerticalAlignments, Default
 from .geometry3d import Vector3D, Point3D, Ray3D, Plane, LineSegment3D, \
     Polyline3D, Arc3D, Face3D, Mesh3D, Polyface3D, Sphere, Cone, Cylinder
 
@@ -247,4 +247,44 @@ class DisplayCylinder(SingleColorBase):
         DisplayModes.surface,
         description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
+    )
+
+
+class DisplayText3D(SingleColorBase):
+    """A text object in 3D space with display properties."""
+
+    type: constr(regex='^DisplayText3D$') = 'DisplayText3D'
+
+    text: str = Field(
+        ...,
+        description='A text string to be displayed in the 3D scene.'
+    )
+
+    plane: Plane = Field(
+        ...,
+        description='A ladybug-geometry Plane object to locate and orient the '
+        'text in the 3D scene.'
+    )
+
+    height: float = Field(
+        ...,
+        gt=0,
+        description='A number for the height of the text in the 3D scene.'
+    )
+
+    font: str = Field(
+        'Arial',
+        description='A text string for the font in which to draw the text. '
+        'Note that this field may not be interpreted the same on all machines and '
+        'in all interfaces, particularly when a machine lacks a given font.'
+    )
+
+    horizontal_alignment: HorizontalAlignments = Field(
+        HorizontalAlignments.left,
+        description='String to specify the horizontal alignment of the text.'
+    )
+
+    vertical_alignment: VerticalAlignments = Field(
+        VerticalAlignments.bottom,
+        description='String to specify the vertical alignment of the text.'
     )
