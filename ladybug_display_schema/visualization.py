@@ -261,6 +261,8 @@ class DataType(NoExtraBaseModel):
 class GenericDataType(DataType):
     """Generic data type representation."""
 
+    type: constr(regex='^GenericDataType$') = 'GenericDataType'
+
     data_type: constr(regex='^GenericType$') = 'GenericType'
 
     base_unit: str = Field(

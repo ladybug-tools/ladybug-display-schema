@@ -12431,7 +12431,7 @@
                         "base_unit": "\u03bcmol/m2-s", 
                         "name": "Photosynthetically Active Radiation", 
                         "abbreviation": "PAR", 
-                        "type": "DataType", 
+                        "type": "GenericDataType", 
                         "data_type": "GenericType"
                     }
                 }, 
