@@ -30,6 +30,97 @@ DISPLAY_UNION = Union[
 ]
 
 
+class Legend3DParameters(NoExtraBaseModel):
+
+    type: constr(regex='^Legend3DParameters$') = 'Legend3DParameters'
+
+    base_plane: Plane = Field(
+        None,
+        description='A Ladybug Plane object to note the starting position from '
+        'where the legend will be generated. The default is the world XY plane '
+        'at origin (0, 0, 0) unless the legend is assigned to a specific geometry, '
+        'in which case the origin is in the lower right corner of the geometry '
+        'bounding box for vertical legends and the upper right corner for '
+        'horizontal legends.'
+    )
+
+    segment_height: Union[Default, float] = Field(
+        Default(),
+        description='A number to set the height for each of the legend segments. '
+        'The default is 1 unless the legend is assigned to a specific geometry, '
+        'in which case it is automatically set to a value on an appropriate scale '
+        '(some fraction of the bounding box around the geometry).'
+    )
+
+    segment_width: Union[Default, float] = Field(
+        Default(),
+        description='A number to set the width for each of the legend segments. '
+        'The default is 1 unless the legend is assigned to a specific geometry, '
+        'in which case it is automatically set to a value on an appropriate scale '
+        '(some fraction of the bounding box around the geometry).'
+    )
+
+    text_height: Union[Default, float] = Field(
+        Default(),
+        description='A number to set the height for the legend text. Default is '
+        '1/3 of the segment_height.'
+    )
+
+
+class Legend2DParameters(NoExtraBaseModel):
+
+    type: constr(regex='^Legend2DParameters$') = 'Legend2DParameters'
+
+    origin_x: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+        Default(),
+        description='A text string to note the X coordinate of the base point from '
+        'where the legend will be generated (assuming an origin in the upper-left '
+        'corner of the viewport with higher positive values of X moving to the right). '
+        'Text must be formatted as an integer followed by either "px" (to denote '
+        'the number of viewport pixels) or "%" (to denote the percentage of the '
+        'viewport width). Examples include 10px, 5%. The default is set to make the '
+        'legend clearly visible on the viewport (usually 10px).'
+    )
+
+    origin_y: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+        Default(),
+        description='A text string to note the Y coordinate of the base point from '
+        'where the legend will be generated (assuming an origin in the upper-left '
+        'corner of the viewport with higher positive values of Y moving downward). '
+        'Text must be formatted as an integer followed by either "px" (to denote '
+        'the number of viewport pixels) or "%" (to denote the percentage of the '
+        'viewport height). Examples include 10px, 5%. The default is set to make '
+        'the legend clearly visible on the viewport (usually 50px).'
+    )
+
+    segment_height: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+        Default(),
+        description='A text string to note the height for each of the legend '
+        'segments. Text must be formatted as an integer followed by either "px" (to '
+        'denote the number of viewport pixels) or "%" (to denote the percentage of the '
+        'viewport height). Examples include 10px, 5%. The default is set to make most '
+        'legends readable (25px for horizontal legends and 36px for vertical legends).'
+    )
+
+    segment_width: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+        Default(),
+        description='A text string to set the width for each of the legend segments. '
+        'Text must be formatted as an integer followed by either "px" (to denote '
+        'the number of viewport pixels) or "%" (to denote the percentage of the '
+        'viewport width). Examples include 10px, 5%. The default is set to make most '
+        'legends readable (36px for horizontal legends and 25px for vertical legends).'
+    )
+
+    text_height: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+        Default(),
+        description='A text string to set the height for the legend text. '
+        'Text must be formatted as an integer followed by either "px" (to denote '
+        'the number of viewport pixels) or "%" (to denote the percentage of the '
+        'viewport height). Examples include 10px, 5%. Default is 1/3 of the '
+        'segment_height. Default is 12px.'
+    )
+
+
 class LegendParameters(NoExtraBaseModel):
     """Legend parameters used to customize legends."""
 
@@ -68,13 +159,6 @@ class LegendParameters(NoExtraBaseModel):
         'are used here but the type of data might also be used.'
     )
 
-    base_plane: Plane = Field(
-        None,
-        description='A Ladybug Plane object to note the starting point from '
-        'where the legend will be generated. The default is the world XY plane '
-        'at origin (0, 0, 0).'
-    )
-
     continuous_legend: bool = Field(
         False,
         description='Boolean noting whether legend is drawn as a gradient or '
@@ -110,28 +194,25 @@ class LegendParameters(NoExtraBaseModel):
         'horizontal (False).'
     )
 
-    segment_height: Union[Default, float] = Field(
-        Default(),
-        description='A number to set the height for each of the legend segments.'
-    )
-
-    segment_width: Union[Default, float] = Field(
-        Default(),
-        description='A number to set the width for each of the legend segments.'
-    )
-
-    text_height: Union[Default, float] = Field(
-        Default(),
-        description='A number to set the height for the legend text. Default is '
-        '1/3 of the segment_height.'
-    )
-
     font: str = Field(
         'Arial',
         description='Text string to set the font for the legend text. Examples '
         'include "Arial", "Times New Roman", "Courier". Note that this '
         'parameter may not have an effect on certain interfaces that have limited '
         'access to fonts.'
+    )
+
+    properties_3d: Legend3DParameters = Field(
+        None,
+        description='A Legend3DParameters object to specify the dimensional '
+        'properties of the legend when it is rendered in the 3D environment of '
+        'the geometry scene.'
+    )
+
+    properties_2d: Legend2DParameters = Field(
+        None,
+        description='A Legend2DParameters object to specify the dimensional '
+        'properties of the legend when it is rendered in the 2D plane of a screen.'
     )
 
     user_data: dict = Field(
