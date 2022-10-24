@@ -16,5 +16,6 @@
         "b": 0,
         "a": 255
     },
-    "display_mode": "Surface"
+    "line_width": 1,
+    "line_type": "Dashed"
 }
