@@ -81,7 +81,7 @@ class DisplayArc2D(LineCurveBase):
     )
 
 
-class DisplayPolygon2D(SingleColorBase):
+class DisplayPolygon2D(LineCurveBase):
     """A single polygon in 2D space with display properties."""
 
     type: constr(regex='^DisplayPolygon2D$') = 'DisplayPolygon2D'
@@ -89,12 +89,6 @@ class DisplayPolygon2D(SingleColorBase):
     geometry: Polygon2D = Field(
         ...,
         description='Polygon2D for the geometry.'
-    )
-
-    display_mode: DisplayModes = Field(
-        DisplayModes.surface,
-        description='Text to indicate the display mode (surface, wireframe, '
-        'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
 

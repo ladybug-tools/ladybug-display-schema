@@ -57,9 +57,6 @@ class LineTypes(str, Enum):
     dashed = 'Dashed'
     dots = 'Dotted'
     dash_dot = 'DashDot'
-    center = 'Center'
-    border = 'Border'
-    hidden = 'Hidden'
 
 
 class DisplayModes(str, Enum):

@@ -12,7 +12,7 @@
                     "legend_parameters": {
                         "type": "LegendParameters",
                         "continuous_legend": false,
-                        "decimal_count": 2,
+                        "decimal_count": 0,
                         "include_larger_smaller": false,
                         "vertical": true,
                         "font": "Arial",
