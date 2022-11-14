@@ -1,9 +1,8 @@
 """Schemas for geometric display objects in 2D space."""
-from typing import List, Union
-from pydantic import Field, constr, root_validator
+from typing import Union
+from pydantic import Field, constr
 
-from .base import DisplayBaseModel, SingleColorBase, LineCurveBase, \
-    Color, DisplayModes, Default
+from .base import SingleColorBase, LineCurveBase, DisplayModes, Default
 from .geometry2d import Vector2D, Point2D, Ray2D, LineSegment2D, \
     Polyline2D, Arc2D, Polygon2D, Mesh2D
 
@@ -92,7 +91,7 @@ class DisplayPolygon2D(LineCurveBase):
     )
 
 
-class DisplayMesh2D(DisplayBaseModel):
+class DisplayMesh2D(SingleColorBase):
     """A mesh in 2D space with display properties."""
 
     type: constr(regex='^DisplayMesh2D$') = 'DisplayMesh2D'
@@ -102,30 +101,8 @@ class DisplayMesh2D(DisplayBaseModel):
         description='Mesh2D for the geometry.'
     )
 
-    colors: List[Color] = Field(
-        ...,
-        description='A list of colors that correspond to either the faces '
-        'of the mesh or the vertices of the mesh. It can also be a single color '
-        'for the entire mesh.'
-    )
-
     display_mode: DisplayModes = Field(
         DisplayModes.surface,
         description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
-
-    @root_validator
-    def check_colors_align(cls, values):
-        """Check that there are an acceptable number of colors for the mesh."""
-        colors, geo = values.get('colors'), values.get('geometry')
-        if colors is None:
-            return values
-        if len(colors) in (1, len(geo.faces), len(geo.vertices)):
-            return values
-        else:
-            raise ValueError(
-                'Number of colors ({}) does not match the number of mesh faces '
-                '({}) nor the number of vertices ({}).'.format(
-                    len(colors), len(geo.faces), len(geo.vertices))
-            )

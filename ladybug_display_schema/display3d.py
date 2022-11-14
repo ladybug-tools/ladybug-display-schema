@@ -1,9 +1,9 @@
 """Schemas for geometric display objects in 3D space."""
-from typing import List, Union
-from pydantic import Field, constr, root_validator
+from typing import Union
+from pydantic import Field, constr
 
-from .base import DisplayBaseModel, SingleColorBase, LineCurveBase, \
-    Color, DisplayModes, HorizontalAlignments, VerticalAlignments, Default
+from .base import SingleColorBase, LineCurveBase, DisplayModes, \
+    HorizontalAlignments, VerticalAlignments, Default
 from .geometry3d import Vector3D, Point3D, Ray3D, Plane, LineSegment3D, \
     Polyline3D, Arc3D, Face3D, Mesh3D, Polyface3D, Sphere, Cone, Cylinder
 
@@ -121,7 +121,7 @@ class DisplayFace3D(SingleColorBase):
     )
 
 
-class DisplayMesh3D(DisplayBaseModel):
+class DisplayMesh3D(SingleColorBase):
     """A mesh in 3D space with display properties."""
 
     type: constr(regex='^DisplayMesh3D$') = 'DisplayMesh3D'
@@ -131,36 +131,14 @@ class DisplayMesh3D(DisplayBaseModel):
         description='Mesh3D for the geometry.'
     )
 
-    colors: List[Color] = Field(
-        ...,
-        description='A list of colors that correspond to either the faces '
-        'of the mesh or the vertices of the mesh. It can also be a single color '
-        'for the entire mesh.'
-    )
-
     display_mode: DisplayModes = Field(
         DisplayModes.surface,
         description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
-    @root_validator
-    def check_colors_align(cls, values):
-        """Check that there are an acceptable number of colors for the mesh."""
-        colors, geo = values.get('colors'), values.get('geometry')
-        if colors is None:
-            return values
-        if len(colors) in (1, len(geo.faces), len(geo.vertices)):
-            return values
-        else:
-            raise ValueError(
-                'Number of colors ({}) does not match the number of mesh faces '
-                '({}) nor the number of vertices ({}).'.format(
-                    len(colors), len(geo.faces), len(geo.vertices))
-            )
 
-
-class DisplayPolyface3D(DisplayBaseModel):
+class DisplayPolyface3D(SingleColorBase):
     """A Polyface in 3D space with display properties."""
 
     type: constr(regex='^DisplayPolyface3D$') = 'DisplayPolyface3D'
@@ -170,33 +148,11 @@ class DisplayPolyface3D(DisplayBaseModel):
         description='Polyface3D for the geometry.'
     )
 
-    colors: List[Color] = Field(
-        ...,
-        description='A list of colors that correspond to either the faces of the '
-        'polyface or the vertices of the polyface. It can also be a single color '
-        'for the entire polyface.'
-    )
-
     display_mode: DisplayModes = Field(
         DisplayModes.surface,
         description='Text to indicate the display mode (surface, wireframe, '
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
-
-    @root_validator
-    def check_colors_align(cls, values):
-        """Check that there are an acceptable number of colors for the mesh."""
-        colors, geo = values.get('colors'), values.get('geometry')
-        if colors is None:
-            return values
-        if len(colors) in (1, len(geo.face_indices), len(geo.vertices)):
-            return values
-        else:
-            raise ValueError(
-                'Number of colors ({}) does not match the number of mesh faces '
-                '({}) nor the number of vertices ({}).'.format(
-                    len(colors), len(geo.face_indices), len(geo.vertices))
-            )
 
 
 class DisplaySphere(SingleColorBase):
