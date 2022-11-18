@@ -434,6 +434,42 @@ class VisualizationData(NoExtraBaseModel):
     )
 
 
+class VisualizationMetaData(NoExtraBaseModel):
+    """Represents the visualization metadata that can be assigned to VisualizationData.
+    """
+
+    type: constr(regex='^VisualizationMetaData$') = 'VisualizationMetaData'
+
+    legend_parameters: LegendParameters = Field(
+        None,
+        description='An Optional LegendParameters object to override default '
+        'parameters of the legend. None indicates that default legend parameters '
+        'will be used.'
+    )
+
+    data_type: Union[DataType, GenericDataType] = Field(
+        None,
+        description='Optional DataType from the ladybug datatype subpackage (ie. '
+        'Temperature()) , which will be used to assign default legend properties. '
+        'If None, the legend associated with this object will contain no units '
+        'unless a unit below is specified.'
+    )
+
+    unit: str = Field(
+        '',
+        description='Optional text string for the units of the values. (ie. "C"). '
+        'If None, the default units of the data_type will be used.'
+    )
+
+    user_data: dict = Field(
+        default=None,
+        description='Optional dictionary of user data associated with the object.'
+        'All keys and values of this dictionary should be of a standard data '
+        'type to ensure correct serialization of the object (eg. str, float, '
+        'int, list).'
+    )
+
+
 class _VisualizationBase(NoExtraBaseModel):
     """Base class for visualization objects."""
 
