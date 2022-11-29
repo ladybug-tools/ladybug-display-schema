@@ -534,6 +534,12 @@ class AnalysisGeometry(_VisualizationBase):
         'etc.). The DisplayModes enumeration contains all acceptable types.'
     )
 
+    hidden: bool = Field(
+        False,
+        description='A boolean to note whether the geometry is hidden by default '
+        'and must be un-hidden to be visible in the 3D scene.'
+    )
+
     @root_validator
     def check_values_align(cls, obj_props):
         """Check that values and geometry align."""
@@ -568,6 +574,12 @@ class ContextGeometry(_VisualizationBase):
         'Typically, these will display in wireframe around the geometry, though '
         'the properties of display geometry can be used to customize the '
         'visualization.'
+    )
+
+    hidden: bool = Field(
+        False,
+        description='A boolean to note whether the geometry is hidden by default '
+        'and must be un-hidden to be visible in the 3D scene.'
     )
 
 
