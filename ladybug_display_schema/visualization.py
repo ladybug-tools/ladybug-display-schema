@@ -583,6 +583,14 @@ class ContextGeometry(_VisualizationBase):
     )
 
 
+class Units(str, Enum):
+    meters = 'Meters'
+    millimeters = 'Millimeters'
+    feet = 'Feet'
+    inches = 'Inches'
+    centimeters = 'Centimeters'
+
+
 class VisualizationSet(_VisualizationBase):
     """A visualization set containing analysis and context geometry to be visualized."""
 
@@ -594,4 +602,11 @@ class VisualizationSet(_VisualizationBase):
         'display in the visualization. Each geometry object will typically be '
         'translated to its own layer within the interface that renders the '
         'VisualizationSet.'
+    )
+
+    units: Units = Field(
+        default=None,
+        description='Text indicating the units in which the model geometry exists. '
+        'If None, the geometry will always be assumed to be in the current units '
+        'system of the display interface.'
     )
