@@ -16,7 +16,7 @@ from ladybug_display_schema.display3d import DisplayVector3D, DisplayPoint3D, \
     DisplayRay3D, DisplayPlane, DisplayLineSegment3D, DisplayPolyline3D, DisplayArc3D, \
     DisplayFace3D, DisplayMesh3D, DisplayPolyface3D, DisplaySphere, DisplayCone, \
     DisplayCylinder
-from ladybug_display_schema.visualization import VisualizationSet
+from ladybug_display_schema.visualization import VisualizationSet, VisualizationMetaData
 
 parser = argparse.ArgumentParser(description='Generate OpenAPI JSON schemas')
 
@@ -64,7 +64,7 @@ all_dis = [
 ]
 
 modules = [
-    {'module': [VisualizationSet], 'name': 'Visualization'},
+    {'module': [VisualizationSet, VisualizationMetaData], 'name': 'Visualization'},
     {'module': all_geo, 'name': 'Geometry'},
     {'module': all_dis, 'name': 'Display'}
 ]
@@ -125,7 +125,7 @@ external_docs = {
 }
 
 openapi = get_openapi(
-    [VisualizationSet],
+    [VisualizationSet, VisualizationMetaData],
     title='Ladybug Visualization Schema',
     description='Documentation for Honeybee model schema',
     version=VERSION, info=info,
