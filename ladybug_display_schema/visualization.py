@@ -138,13 +138,13 @@ class LegendParameters(NoExtraBaseModel):
         'maximum of the values associated with the legend will be used.'
     )
 
-    segment_count: Union[Default, conint(ge=2)] = Field(
+    segment_count: Union[Default, conint(ge=1)] = Field(
         Default(),
         description='An integer representing the number of steps between '
         'the high and low boundary of the legend. The default is set to 11 '
         'or it will be equal to the number of items in the ordinal_dictionary. '
         'Any custom values input in here should always be greater than or '
-        'equal to 2.'
+        'equal to 1.'
     )
 
     colors: List[Color] = Field(
