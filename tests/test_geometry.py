@@ -11,89 +11,89 @@ target_folder = os.path.join(root, 'samples', 'geometry')
 
 def test_vector2d():
     file_path = os.path.join(target_folder, 'vector_2d.json')
-    Vector2D.parse_file(file_path)
+    Vector2D.model_validate_json(open(file_path).read())
 
 
 def test_point2d():
     file_path = os.path.join(target_folder, 'point_2d.json')
-    Point2D.parse_file(file_path)
+    Point2D.model_validate_json(open(file_path).read())
 
 
 def test_ray2d():
     file_path = os.path.join(target_folder, 'ray_2d.json')
-    Ray2D.parse_file(file_path)
+    Ray2D.model_validate_json(open(file_path).read())
 
 
 def test_line_segment_2d():
     file_path = os.path.join(target_folder, 'line_segment_2d.json')
-    LineSegment2D.parse_file(file_path)
+    LineSegment2D.model_validate_json(open(file_path).read())
 
 
 def test_polyline_2d():
     file_path = os.path.join(target_folder, 'polyline_2d.json')
-    Polyline2D.parse_file(file_path)
+    Polyline2D.model_validate_json(open(file_path).read())
 
 
 def test_arc_2d():
     file_path = os.path.join(target_folder, 'arc_2d.json')
-    Arc2D.parse_file(file_path)
+    Arc2D.model_validate_json(open(file_path).read())
 
 
 def test_polygon_2d():
     file_path = os.path.join(target_folder, 'polygon_2d.json')
-    Polygon2D.parse_file(file_path)
+    Polygon2D.model_validate_json(open(file_path).read())
 
 
 def test_mesh_2d():
     file_path = os.path.join(target_folder, 'mesh_2d.json')
-    Mesh2D.parse_file(file_path)
+    Mesh2D.model_validate_json(open(file_path).read())
 
 
 def test_vector3d():
     file_path = os.path.join(target_folder, 'vector_3d.json')
-    Vector3D.parse_file(file_path)
+    Vector3D.model_validate_json(open(file_path).read())
 
 
 def test_point3d():
     file_path = os.path.join(target_folder, 'point_3d.json')
-    Point3D.parse_file(file_path)
+    Point3D.model_validate_json(open(file_path).read())
 
 
 def test_ray3d():
     file_path = os.path.join(target_folder, 'ray_3d.json')
-    Ray3D.parse_file(file_path)
+    Ray3D.model_validate_json(open(file_path).read())
 
 
 def test_plane():
     file_path = os.path.join(target_folder, 'plane.json')
-    Plane.parse_file(file_path)
+    Plane.model_validate_json(open(file_path).read())
 
 
 def test_line_segment_3d():
     file_path = os.path.join(target_folder, 'line_segment_3d.json')
-    LineSegment3D.parse_file(file_path)
+    LineSegment3D.model_validate_json(open(file_path).read())
 
 
 def test_polyline_3d():
     file_path = os.path.join(target_folder, 'polyline_3d.json')
-    Polyline3D.parse_file(file_path)
+    Polyline3D.model_validate_json(open(file_path).read())
 
 
 def test_arc_3d():
     file_path = os.path.join(target_folder, 'arc_3d.json')
-    Arc3D.parse_file(file_path)
+    Arc3D.model_validate_json(open(file_path).read())
 
 
 def test_face_3d():
     file_path = os.path.join(target_folder, 'face_3d.json')
-    Face3D.parse_file(file_path)
+    Face3D.model_validate_json(open(file_path).read())
 
 
 def test_mesh_3d():
     file_path = os.path.join(target_folder, 'mesh_3d.json')
-    Mesh3D.parse_file(file_path)
+    Mesh3D.model_validate_json(open(file_path).read())
 
 
 def test_polyface_3d():
     file_path = os.path.join(target_folder, 'polyface_3d.json')
-    Polyface3D.parse_file(file_path)
+    Polyface3D.model_validate_json(open(file_path).read())

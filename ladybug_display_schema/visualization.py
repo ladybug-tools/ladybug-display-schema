@@ -1,7 +1,7 @@
 """VisualizationSet used to align geometry with data and get legends, titles, colors."""
-from typing import List, Union
+from typing import List, Union, Literal
 from enum import Enum
-from pydantic import Field, constr, conint, root_validator
+from pydantic import Field, conint, model_validator
 
 from .base import DisplayModes, NoExtraBaseModel, Default, Color
 from .geometry2d import Vector2D, Point2D, Ray2D, LineSegment2D, \
@@ -32,9 +32,9 @@ DISPLAY_UNION = Union[
 
 class Legend3DParameters(NoExtraBaseModel):
 
-    type: constr(regex='^Legend3DParameters$') = 'Legend3DParameters'
+    type: Literal['Legend3DParameters'] = 'Legend3DParameters'
 
-    base_plane: Plane = Field(
+    base_plane: Union[Plane, None] = Field(
         None,
         description='A Ladybug Plane object to note the starting position from '
         'where the legend will be generated. The default is the world XY plane '
@@ -69,10 +69,11 @@ class Legend3DParameters(NoExtraBaseModel):
 
 class Legend2DParameters(NoExtraBaseModel):
 
-    type: constr(regex='^Legend2DParameters$') = 'Legend2DParameters'
+    type: Literal['Legend2DParameters'] = 'Legend2DParameters'
 
-    origin_x: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+    origin_x: Union[Default, str] = Field(
         Default(),
+        pattern=r'^\d*px|\d*%$',
         description='A text string to note the X coordinate of the base point from '
         'where the legend will be generated (assuming an origin in the upper-left '
         'corner of the viewport with higher positive values of X moving to the right). '
@@ -82,8 +83,9 @@ class Legend2DParameters(NoExtraBaseModel):
         'legend clearly visible on the viewport (usually 10px).'
     )
 
-    origin_y: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+    origin_y: Union[Default, str] = Field(
         Default(),
+        pattern=r'^\d*px|\d*%$',
         description='A text string to note the Y coordinate of the base point from '
         'where the legend will be generated (assuming an origin in the upper-left '
         'corner of the viewport with higher positive values of Y moving downward). '
@@ -93,8 +95,9 @@ class Legend2DParameters(NoExtraBaseModel):
         'the legend clearly visible on the viewport (usually 50px).'
     )
 
-    segment_height: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+    segment_height: Union[Default, str] = Field(
         Default(),
+        pattern=r'^\d*px|\d*%$',
         description='A text string to note the height for each of the legend '
         'segments. Text must be formatted as an integer followed by either "px" (to '
         'denote the number of viewport pixels) or "%" (to denote the percentage of the '
@@ -102,8 +105,9 @@ class Legend2DParameters(NoExtraBaseModel):
         'legends readable (25px for horizontal legends and 36px for vertical legends).'
     )
 
-    segment_width: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+    segment_width: Union[Default, str] = Field(
         Default(),
+        pattern=r'^\d*px|\d*%$',
         description='A text string to set the width for each of the legend segments. '
         'Text must be formatted as an integer followed by either "px" (to denote '
         'the number of viewport pixels) or "%" (to denote the percentage of the '
@@ -111,8 +115,9 @@ class Legend2DParameters(NoExtraBaseModel):
         'legends readable (36px for horizontal legends and 25px for vertical legends).'
     )
 
-    text_height: Union[Default, constr(regex=r'^\d*px|\d*%$')] = Field(
+    text_height: Union[Default, str] = Field(
         Default(),
+        pattern=r'^\d*px|\d*%$',
         description='A text string to set the height for the legend text. '
         'Text must be formatted as an integer followed by either "px" (to denote '
         'the number of viewport pixels) or "%" (to denote the percentage of the '
@@ -124,7 +129,7 @@ class Legend2DParameters(NoExtraBaseModel):
 class LegendParameters(NoExtraBaseModel):
     """Legend parameters used to customize legends."""
 
-    type: constr(regex='^LegendParameters$') = 'LegendParameters'
+    type: Literal['LegendParameters'] = 'LegendParameters'
 
     min: Union[Default, float] = Field(
         Default(),
@@ -147,9 +152,9 @@ class LegendParameters(NoExtraBaseModel):
         'equal to 1.'
     )
 
-    colors: List[Color] = Field(
+    colors: Union[List[Color], None] = Field(
         None,
-        min_items=2,
+        min_length=2,
         description='An list of color objects. Default is the Ladybug original colorset.'
     )
 
@@ -165,7 +170,7 @@ class LegendParameters(NoExtraBaseModel):
         'discrete segments.'
     )
 
-    ordinal_dictionary: dict = Field(
+    ordinal_dictionary: Union[dict, None] = Field(
         default=None,
         description='Optional dictionary that maps values to text categories. '
         'If None, numerical values will be used for the legend segments. If not, text '
@@ -202,20 +207,20 @@ class LegendParameters(NoExtraBaseModel):
         'access to fonts.'
     )
 
-    properties_3d: Legend3DParameters = Field(
+    properties_3d: Union[Legend3DParameters, None] = Field(
         None,
         description='A Legend3DParameters object to specify the dimensional '
         'properties of the legend when it is rendered in the 3D environment of '
         'the geometry scene.'
     )
 
-    properties_2d: Legend2DParameters = Field(
+    properties_2d: Union[Legend2DParameters, None] = Field(
         None,
         description='A Legend2DParameters object to specify the dimensional '
         'properties of the legend when it is rendered in the 2D plane of a screen.'
     )
 
-    user_data: dict = Field(
+    user_data: Union[dict, None] = Field(
         default=None,
         description='Optional dictionary of user data associated with the object.'
         'All keys and values of this dictionary should be of a standard data '
@@ -323,7 +328,7 @@ class DataTypes(str, Enum):
 class DataType(NoExtraBaseModel):
     """Data type representation."""
 
-    type: constr(regex='^DataType$') = 'DataType'
+    type: Literal['DataType'] = 'DataType'
 
     data_type: DataTypes = Field(
         ...,
@@ -342,9 +347,9 @@ class DataType(NoExtraBaseModel):
 class GenericDataType(DataType):
     """Generic data type representation."""
 
-    type: constr(regex='^GenericDataType$') = 'GenericDataType'
+    type: Literal['GenericDataType'] = 'GenericDataType'
 
-    data_type: constr(regex='^GenericType$') = 'GenericType'
+    data_type: Literal['GenericType'] = 'GenericType'
 
     base_unit: str = Field(
         ...,
@@ -369,7 +374,7 @@ class GenericDataType(DataType):
         description='An optional abbreviation for the data type as text.'
     )
 
-    unit_descr: dict = Field(
+    unit_descr: Union[dict, None] = Field(
         default=None,
         description='An optional dictionary describing categories that the numerical '
         'values of the units relate to. For example: {-1: "Cold", 0: "Neutral", '
@@ -395,23 +400,23 @@ class GenericDataType(DataType):
 class VisualizationData(NoExtraBaseModel):
     """Represents a data set for visualization with legend parameters and data type."""
 
-    type: constr(regex='^VisualizationData$') = 'VisualizationData'
+    type: Literal['VisualizationData'] = 'VisualizationData'
 
     values: List[float] = Field(
         ...,
-        min_items=1,
+        min_length=1,
         description='A list of numerical values that will be used to generate '
         'the visualization colors.'
     )
 
-    legend_parameters: LegendParameters = Field(
+    legend_parameters: Union[LegendParameters, None] = Field(
         None,
         description='An Optional LegendParameters object to override default '
         'parameters of the legend. None indicates that default legend parameters '
         'will be used.'
     )
 
-    data_type: Union[DataType, GenericDataType] = Field(
+    data_type: Union[DataType, GenericDataType, None] = Field(
         None,
         description='Optional DataType from the ladybug datatype subpackage (ie. '
         'Temperature()) , which will be used to assign default legend properties. '
@@ -425,7 +430,7 @@ class VisualizationData(NoExtraBaseModel):
         'If None, the default units of the data_type will be used.'
     )
 
-    user_data: dict = Field(
+    user_data: Union[dict, None] = Field(
         default=None,
         description='Optional dictionary of user data associated with the object.'
         'All keys and values of this dictionary should be of a standard data '
@@ -438,16 +443,16 @@ class VisualizationMetaData(NoExtraBaseModel):
     """Represents the visualization metadata that can be assigned to VisualizationData.
     """
 
-    type: constr(regex='^VisualizationMetaData$') = 'VisualizationMetaData'
+    type: Literal['VisualizationMetaData'] = 'VisualizationMetaData'
 
-    legend_parameters: LegendParameters = Field(
+    legend_parameters: Union[LegendParameters, None] = Field(
         None,
         description='An Optional LegendParameters object to override default '
         'parameters of the legend. None indicates that default legend parameters '
         'will be used.'
     )
 
-    data_type: Union[DataType, GenericDataType] = Field(
+    data_type: Union[DataType, GenericDataType, None] = Field(
         None,
         description='Optional DataType from the ladybug datatype subpackage (ie. '
         'Temperature()) , which will be used to assign default legend properties. '
@@ -461,7 +466,7 @@ class VisualizationMetaData(NoExtraBaseModel):
         'If None, the default units of the data_type will be used.'
     )
 
-    user_data: dict = Field(
+    user_data: Union[dict, None] = Field(
         default=None,
         description='Optional dictionary of user data associated with the object.'
         'All keys and values of this dictionary should be of a standard data '
@@ -475,14 +480,14 @@ class _VisualizationBase(NoExtraBaseModel):
 
     identifier: str = Field(
         ...,
-        regex=r'^[.A-Za-z0-9_-]+$',
+        pattern=r'^[.A-Za-z0-9_-]+$',
         min_length=1,
         max_length=100,
         description='Text string for a unique object ID. Must be less than 100 '
         'characters and not contain spaces or special characters.'
     )
 
-    display_name: str = Field(
+    display_name: Union[str, None] = Field(
         default=None,
         description='Display name of the object with no character restrictions. '
         'This is typically used to set the layer of the object in the interface that '
@@ -491,7 +496,7 @@ class _VisualizationBase(NoExtraBaseModel):
         'the display_name will be equal to the object identifier.'
     )
 
-    user_data: dict = Field(
+    user_data: Union[dict, None] = Field(
         default=None,
         description='Optional dictionary of user data associated with the object.'
         'All keys and values of this dictionary should be of a standard data '
@@ -503,7 +508,7 @@ class _VisualizationBase(NoExtraBaseModel):
 class AnalysisGeometry(_VisualizationBase):
     """An object where multiple data streams correspond to the same geometry."""
 
-    type: constr(regex='^AnalysisGeometry$') = 'AnalysisGeometry'
+    type: Literal['AnalysisGeometry'] = 'AnalysisGeometry'
 
     geometry: List[GEOMETRY_UNION] = Field(
         ...,
@@ -517,7 +522,7 @@ class AnalysisGeometry(_VisualizationBase):
 
     data_sets: List[VisualizationData] = Field(
         ...,
-        min_items=1,
+        min_length=1,
         description='An list of VisualizationData objects representing the data sets '
         'that are associated with the input geometry.'
     )
@@ -540,32 +545,35 @@ class AnalysisGeometry(_VisualizationBase):
         'and must be un-hidden to be visible in the 3D scene.'
     )
 
-    @root_validator
-    def check_values_align(cls, obj_props):
+    @model_validator(mode='after')
+    def check_values_align(self):
         """Check that values and geometry align."""
-        data_sets, geos = obj_props.get('data_sets'), obj_props.get('geometry')
+        data_sets, geos = self.data_sets, self.geometry
         geo_count_0, geo_count_1, geo_count_2 = len(geos), 0, 0
         for geo in geos:
             if isinstance(geo, (Mesh2D, Mesh3D)):
                 geo_count_1 += len(geo.faces)
                 geo_count_2 += len(geo.vertices)
         possible_lens = (geo_count_0, geo_count_1, geo_count_2)
-        assert len(data_sets[0].values) in possible_lens, 'Expected number of values' \
-            ' ({}) to align with the number of geometries ({}), the number of ' \
-            'mesh faces ({}), or the number of mesh vertices ({}).'.format(
-                len(data_sets[0].values), geo_count_0, geo_count_1, geo_count_2)
+        if len(data_sets[0].values) not in possible_lens:
+            raise ValueError(
+                'Expected number of values ({}) to align with the number of '
+                'geometries ({}), the number of mesh faces ({}), or the number of '
+                'mesh vertices ({}).'.format(
+                    len(data_sets[0].values), geo_count_0, geo_count_1, geo_count_2))
         ref_len = len(data_sets[0].values)
         for data in data_sets[1:]:
-            assert len(data.values) == ref_len, 'Expected all data sets of ' \
-                'AnalysisGeometry to have the same length. {} != {}.'.format(
-                    len(data.values), ref_len)
-        return obj_props
+            if len(data.values) != ref_len:
+                raise ValueError('Expected all data sets of AnalysisGeometry to have '
+                                 'the same length. {} != {}.'.format(
+                                     len(data.values), ref_len))
+        return self
 
 
 class ContextGeometry(_VisualizationBase):
     """An object representing context geometry to display."""
 
-    type: constr(regex='^ContextGeometry$') = 'ContextGeometry'
+    type: Literal['ContextGeometry'] = 'ContextGeometry'
 
     geometry: List[DISPLAY_UNION] = Field(
         ...,
@@ -594,9 +602,9 @@ class Units(str, Enum):
 class VisualizationSet(_VisualizationBase):
     """A visualization set containing analysis and context geometry to be visualized."""
 
-    type: constr(regex='^VisualizationSet$') = 'VisualizationSet'
+    type: Literal['VisualizationSet'] = 'VisualizationSet'
 
-    geometry: List[Union[AnalysisGeometry, ContextGeometry]] = Field(
+    geometry: Union[List[Union[AnalysisGeometry, ContextGeometry]], None] = Field(
         None,
         description='A list of AnalysisGeometry and ContextGeometry objects to '
         'display in the visualization. Each geometry object will typically be '
@@ -604,7 +612,7 @@ class VisualizationSet(_VisualizationBase):
         'VisualizationSet.'
     )
 
-    units: Units = Field(
+    units: Union[Units, None] = Field(
         default=None,
         description='Text indicating the units in which the model geometry exists. '
         'If None, the geometry will always be assumed to be in the current units '

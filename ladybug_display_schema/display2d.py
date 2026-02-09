@@ -1,6 +1,6 @@
 """Schemas for geometric display objects in 2D space."""
-from typing import Union
-from pydantic import Field, constr
+from typing import Union, Literal, Annotated
+from pydantic import Field
 
 from .base import SingleColorBase, LineCurveBase, DisplayModes, Default
 from .geometry2d import Vector2D, Point2D, Ray2D, LineSegment2D, \
@@ -10,7 +10,7 @@ from .geometry2d import Vector2D, Point2D, Ray2D, LineSegment2D, \
 class DisplayVector2D(SingleColorBase):
     """A point object in 2D space with display properties."""
 
-    type: constr(regex='^DisplayVector2D$') = 'DisplayVector2D'
+    type: Literal['DisplayVector2D'] = 'DisplayVector2D'
 
     geometry: Vector2D = Field(
         ...,
@@ -21,16 +21,15 @@ class DisplayVector2D(SingleColorBase):
 class DisplayPoint2D(SingleColorBase):
     """A point object in 2D space with display properties."""
 
-    type: constr(regex='^DisplayPoint2D$') = 'DisplayPoint2D'
+    type: Literal['DisplayPoint2D'] = 'DisplayPoint2D'
 
     geometry: Point2D = Field(
         ...,
         description='Point2D for the geometry.'
     )
 
-    radius: Union[Default, float] = Field(
+    radius: Union[Default, Annotated[float, Field(ge=0)]] = Field(
         Default(),
-        ge=0,
         description='Number for the radius with which the point should be displayed '
         'in pixels (for the screen) or millimeters (in print).'
     )
@@ -39,7 +38,7 @@ class DisplayPoint2D(SingleColorBase):
 class DisplayRay2D(SingleColorBase):
     """A ray object in 2D space with display properties."""
 
-    type: constr(regex='^DisplayRay2D$') = 'DisplayRay2D'
+    type: Literal['DisplayRay2D'] = 'DisplayRay2D'
 
     geometry: Ray2D = Field(
         ...,
@@ -50,7 +49,7 @@ class DisplayRay2D(SingleColorBase):
 class DisplayLineSegment2D(LineCurveBase):
     """A single line segment face in 2D space with display properties."""
 
-    type: constr(regex='^DisplayLineSegment2D$') = 'DisplayLineSegment2D'
+    type: Literal['DisplayLineSegment2D'] = 'DisplayLineSegment2D'
 
     geometry: LineSegment2D = Field(
         ...,
@@ -61,7 +60,7 @@ class DisplayLineSegment2D(LineCurveBase):
 class DisplayPolyline2D(LineCurveBase):
     """A polyline in 2D space with display properties."""
 
-    type: constr(regex='^DisplayPolyline2D$') = 'DisplayPolyline2D'
+    type: Literal['DisplayPolyline2D'] = 'DisplayPolyline2D'
 
     geometry: Polyline2D = Field(
         ...,
@@ -72,7 +71,7 @@ class DisplayPolyline2D(LineCurveBase):
 class DisplayArc2D(LineCurveBase):
     """A single arc or circle in 2D space with display properties."""
 
-    type: constr(regex='^DisplayArc2D$') = 'DisplayArc2D'
+    type: Literal['DisplayArc2D'] = 'DisplayArc2D'
 
     geometry: Arc2D = Field(
         ...,
@@ -83,7 +82,7 @@ class DisplayArc2D(LineCurveBase):
 class DisplayPolygon2D(LineCurveBase):
     """A single polygon in 2D space with display properties."""
 
-    type: constr(regex='^DisplayPolygon2D$') = 'DisplayPolygon2D'
+    type: Literal['DisplayPolygon2D'] = 'DisplayPolygon2D'
 
     geometry: Polygon2D = Field(
         ...,
@@ -94,7 +93,7 @@ class DisplayPolygon2D(LineCurveBase):
 class DisplayMesh2D(SingleColorBase):
     """A mesh in 2D space with display properties."""
 
-    type: constr(regex='^DisplayMesh2D$') = 'DisplayMesh2D'
+    type: Literal['DisplayMesh2D'] = 'DisplayMesh2D'
 
     geometry: Mesh2D = Field(
         ...,

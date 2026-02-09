@@ -1,6 +1,6 @@
 """Schemas for geometric display objects in 3D space."""
-from typing import Union
-from pydantic import Field, constr
+from typing import Union, Literal, Annotated
+from pydantic import Field
 
 from .base import SingleColorBase, LineCurveBase, DisplayModes, \
     HorizontalAlignments, VerticalAlignments, Default
@@ -11,7 +11,7 @@ from .geometry3d import Vector3D, Point3D, Ray3D, Plane, LineSegment3D, \
 class DisplayVector3D(SingleColorBase):
     """A point object in 3D space with display properties."""
 
-    type: constr(regex='^DisplayVector3D$') = 'DisplayVector3D'
+    type: Literal['DisplayVector3D'] = 'DisplayVector3D'
 
     geometry: Vector3D = Field(
         ...,
@@ -22,16 +22,15 @@ class DisplayVector3D(SingleColorBase):
 class DisplayPoint3D(SingleColorBase):
     """A point object in 3D space with display properties."""
 
-    type: constr(regex='^DisplayPoint3D$') = 'DisplayPoint3D'
+    type: Literal['DisplayPoint3D'] = 'DisplayPoint3D'
 
     geometry: Point3D = Field(
         ...,
         description='Point3D for the geometry.'
     )
 
-    radius: Union[Default, float] = Field(
+    radius: Union[Default, Annotated[float, Field(ge=0)]] = Field(
         Default(),
-        ge=0,
         description='Number for the radius with which the point should be displayed '
         'in pixels (for the screen) or millimeters (in print).'
     )
@@ -40,7 +39,7 @@ class DisplayPoint3D(SingleColorBase):
 class DisplayRay3D(SingleColorBase):
     """A ray object in 3D space with display properties."""
 
-    type: constr(regex='^DisplayRay3D$') = 'DisplayRay3D'
+    type: Literal['DisplayRay3D'] = 'DisplayRay3D'
 
     geometry: Ray3D = Field(
         ...,
@@ -51,7 +50,7 @@ class DisplayRay3D(SingleColorBase):
 class DisplayPlane(SingleColorBase):
     """A plane object with display properties."""
 
-    type: constr(regex='^DisplayPlane$') = 'DisplayPlane'
+    type: Literal['DisplayPlane'] = 'DisplayPlane'
 
     geometry: Plane = Field(
         ...,
@@ -74,7 +73,7 @@ class DisplayPlane(SingleColorBase):
 class DisplayLineSegment3D(LineCurveBase):
     """A single line segment face in 3D space with display properties."""
 
-    type: constr(regex='^DisplayLineSegment3D$') = 'DisplayLineSegment3D'
+    type: Literal['DisplayLineSegment3D'] = 'DisplayLineSegment3D'
 
     geometry: LineSegment3D = Field(
         ...,
@@ -85,7 +84,7 @@ class DisplayLineSegment3D(LineCurveBase):
 class DisplayPolyline3D(LineCurveBase):
     """A polyline in 3D space with display properties."""
 
-    type: constr(regex='^DisplayPolyline3D$') = 'DisplayPolyline3D'
+    type: Literal['DisplayPolyline3D'] = 'DisplayPolyline3D'
 
     geometry: Polyline3D = Field(
         ...,
@@ -96,7 +95,7 @@ class DisplayPolyline3D(LineCurveBase):
 class DisplayArc3D(LineCurveBase):
     """A single arc or circle in 3D space with display properties."""
 
-    type: constr(regex='^DisplayArc3D$') = 'DisplayArc3D'
+    type: Literal['DisplayArc3D'] = 'DisplayArc3D'
 
     geometry: Arc3D = Field(
         ...,
@@ -107,7 +106,7 @@ class DisplayArc3D(LineCurveBase):
 class DisplayFace3D(SingleColorBase):
     """A single planar face in 3D space with display properties."""
 
-    type: constr(regex='^DisplayFace3D$') = 'DisplayFace3D'
+    type: Literal['DisplayFace3D'] = 'DisplayFace3D'
 
     geometry: Face3D = Field(
         ...,
@@ -124,7 +123,7 @@ class DisplayFace3D(SingleColorBase):
 class DisplayMesh3D(SingleColorBase):
     """A mesh in 3D space with display properties."""
 
-    type: constr(regex='^DisplayMesh3D$') = 'DisplayMesh3D'
+    type: Literal['DisplayMesh3D'] = 'DisplayMesh3D'
 
     geometry: Mesh3D = Field(
         ...,
@@ -141,7 +140,7 @@ class DisplayMesh3D(SingleColorBase):
 class DisplayPolyface3D(SingleColorBase):
     """A Polyface in 3D space with display properties."""
 
-    type: constr(regex='^DisplayPolyface3D$') = 'DisplayPolyface3D'
+    type: Literal['DisplayPolyface3D'] = 'DisplayPolyface3D'
 
     geometry: Polyface3D = Field(
         ...,
@@ -158,7 +157,7 @@ class DisplayPolyface3D(SingleColorBase):
 class DisplaySphere(SingleColorBase):
     """A sphere object with display properties."""
 
-    type: constr(regex='^DisplaySphere$') = 'DisplaySphere'
+    type: Literal['DisplaySphere'] = 'DisplaySphere'
 
     geometry: Sphere = Field(
         ...,
@@ -175,7 +174,7 @@ class DisplaySphere(SingleColorBase):
 class DisplayCone(SingleColorBase):
     """A cone object with display properties."""
 
-    type: constr(regex='^DisplayCone$') = 'DisplayCone'
+    type: Literal['DisplayCone'] = 'DisplayCone'
 
     geometry: Cone = Field(
         ...,
@@ -192,7 +191,7 @@ class DisplayCone(SingleColorBase):
 class DisplayCylinder(SingleColorBase):
     """A cylinder object with display properties."""
 
-    type: constr(regex='^DisplayCylinder$') = 'DisplayCylinder'
+    type: Literal['DisplayCylinder'] = 'DisplayCylinder'
 
     geometry: Cylinder = Field(
         ...,
@@ -209,7 +208,7 @@ class DisplayCylinder(SingleColorBase):
 class DisplayText3D(SingleColorBase):
     """A text object in 3D space with display properties."""
 
-    type: constr(regex='^DisplayText3D$') = 'DisplayText3D'
+    type: Literal['DisplayText3D'] = 'DisplayText3D'
 
     text: str = Field(
         ...,
