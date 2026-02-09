@@ -1,20 +1,19 @@
 """Base class for all objects requiring a valid names for all engines."""
 from enum import Enum
-from typing import Union
-from pydantic import BaseModel, Field, Extra, constr
+from typing import Union, Literal, Annotated
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class NoExtraBaseModel(BaseModel):
     """Base class for all objects that are not extensible with additional keys."""
 
-    class Config:
-        extra = Extra.forbid
+    model_config = ConfigDict(extra='forbid')
 
 
 class Color(NoExtraBaseModel):
     """A RGB color."""
 
-    type: constr(regex='^Color$') = 'Color'
+    type: Literal['Color'] = 'Color'
 
     r: int = Field(
         ...,
@@ -49,7 +48,7 @@ class Color(NoExtraBaseModel):
 class Default(NoExtraBaseModel):
     """Object to signify when the default value of a visual interface should be used."""
 
-    type: constr(regex='^Default$') = 'Default'
+    type: Literal['Default'] = 'Default'
 
 
 class LineTypes(str, Enum):
@@ -81,7 +80,7 @@ class VerticalAlignments(str, Enum):
 class DisplayBaseModel(NoExtraBaseModel):
     """Base class for all Geometric Display objects."""
 
-    user_data: dict = Field(
+    user_data: Union[dict, None] = Field(
         default=None,
         description='Optional dictionary of user data associated with the object.'
         'All keys and values of this dictionary should be of a standard data '
@@ -102,9 +101,8 @@ class SingleColorBase(DisplayBaseModel):
 class LineCurveBase(SingleColorBase):
     """Base class for all Geometric Display objects with a line like properties."""
 
-    line_width: Union[Default, float] = Field(
+    line_width: Union[Default, Annotated[float, Field(ge=0)]] = Field(
         Default(),
-        ge=0,
         description='Number for line width in pixels (for the screen) or '
         'millimeters (in print). Set to zero to hide the geometry.'
     )

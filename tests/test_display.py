@@ -14,89 +14,89 @@ target_folder = os.path.join(root, 'samples', 'display')
 
 def test_display_vector2d():
     file_path = os.path.join(target_folder, 'vector_2d.json')
-    DisplayVector2D.parse_file(file_path)
+    DisplayVector2D.model_validate_json(open(file_path).read())
 
 
 def test_point2d():
     file_path = os.path.join(target_folder, 'point_2d.json')
-    DisplayPoint2D.parse_file(file_path)
+    DisplayPoint2D.model_validate_json(open(file_path).read())
 
 
 def test_ray2d():
     file_path = os.path.join(target_folder, 'ray_2d.json')
-    DisplayRay2D.parse_file(file_path)
+    DisplayRay2D.model_validate_json(open(file_path).read())
 
 
 def test_line_segment_2d():
     file_path = os.path.join(target_folder, 'line_segment_2d.json')
-    DisplayLineSegment2D.parse_file(file_path)
+    DisplayLineSegment2D.model_validate_json(open(file_path).read())
 
 
 def test_polyline_2d():
     file_path = os.path.join(target_folder, 'polyline_2d.json')
-    DisplayPolyline2D.parse_file(file_path)
+    DisplayPolyline2D.model_validate_json(open(file_path).read())
 
 
 def test_arc_2d():
     file_path = os.path.join(target_folder, 'arc_2d.json')
-    DisplayArc2D.parse_file(file_path)
+    DisplayArc2D.model_validate_json(open(file_path).read())
 
 
 def test_polygon_2d():
     file_path = os.path.join(target_folder, 'polygon_2d.json')
-    DisplayPolygon2D.parse_file(file_path)
+    DisplayPolygon2D.model_validate_json(open(file_path).read())
 
 
 def test_mesh_2d():
     file_path = os.path.join(target_folder, 'mesh_2d.json')
-    DisplayMesh2D.parse_file(file_path)
+    DisplayMesh2D.model_validate_json(open(file_path).read())
 
 
 def test_display_vector3d():
     file_path = os.path.join(target_folder, 'vector_3d.json')
-    DisplayVector3D.parse_file(file_path)
+    DisplayVector3D.model_validate_json(open(file_path).read())
 
 
 def test_point3d():
     file_path = os.path.join(target_folder, 'point_3d.json')
-    DisplayPoint3D.parse_file(file_path)
+    DisplayPoint3D.model_validate_json(open(file_path).read())
 
 
 def test_ray3d():
     file_path = os.path.join(target_folder, 'ray_3d.json')
-    DisplayRay3D.parse_file(file_path)
+    DisplayRay3D.model_validate_json(open(file_path).read())
 
 
 def test_plane():
     file_path = os.path.join(target_folder, 'plane.json')
-    DisplayPlane.parse_file(file_path)
+    DisplayPlane.model_validate_json(open(file_path).read())
 
 
 def test_line_segment_3d():
     file_path = os.path.join(target_folder, 'line_segment_3d.json')
-    DisplayLineSegment3D.parse_file(file_path)
+    DisplayLineSegment3D.model_validate_json(open(file_path).read())
 
 
 def test_polyline_3d():
     file_path = os.path.join(target_folder, 'polyline_3d.json')
-    DisplayPolyline3D.parse_file(file_path)
+    DisplayPolyline3D.model_validate_json(open(file_path).read())
 
 
 def test_arc_3d():
     file_path = os.path.join(target_folder, 'arc_3d.json')
-    DisplayArc3D.parse_file(file_path)
+    DisplayArc3D.model_validate_json(open(file_path).read())
 
 
 def test_face_3d():
     file_path = os.path.join(target_folder, 'face_3d.json')
-    DisplayFace3D.parse_file(file_path)
+    DisplayFace3D.model_validate_json(open(file_path).read())
 
 
 def test_mesh_3d():
     file_path = os.path.join(target_folder, 'mesh_3d.json')
-    DisplayMesh3D.parse_file(file_path)
+    DisplayMesh3D.model_validate_json(open(file_path).read())
 
 
 def test_polyface_3d():
     file_path = os.path.join(target_folder, 'polyface_3d.json')
-    DisplayPolyface3D.parse_file(file_path)
+    DisplayPolyface3D.model_validate_json(open(file_path).read())

@@ -1,7 +1,7 @@
 """Schemas for geometry objects in 3D space."""
 import math
-from typing import List
-from pydantic import Field, conlist, constr, conint
+from typing import List, Literal, Union
+from pydantic import Field, conlist, conint
 
 from .base import NoExtraBaseModel, Color
 
@@ -9,7 +9,7 @@ from .base import NoExtraBaseModel, Color
 class Vector3D(NoExtraBaseModel):
     """A vector object in 3D space."""
 
-    type: constr(regex='^Vector3D$') = 'Vector3D'
+    type: Literal['Vector3D'] = 'Vector3D'
 
     x: float = Field(
         ...,
@@ -30,7 +30,7 @@ class Vector3D(NoExtraBaseModel):
 class Point3D(NoExtraBaseModel):
     """A point object in 3D space."""
 
-    type: constr(regex='^Point3D$') = 'Point3D'
+    type: Literal['Point3D'] = 'Point3D'
 
     x: float = Field(
         ...,
@@ -51,78 +51,78 @@ class Point3D(NoExtraBaseModel):
 class Ray3D(NoExtraBaseModel):
     """A ray object in 3D space."""
 
-    type: constr(regex='^Ray3D$') = 'Ray3D'
+    type: Literal['Ray3D'] = 'Ray3D'
 
     p: List[float] = Field(
         ...,
         description="Ray base point as 3 (x, y, z) values.",
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
     v: List[float] = Field(
         ...,
         description="Ray direction vector as 3 (x, y, z) values.",
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
 
 class Plane(NoExtraBaseModel):
     """A plane object."""
 
-    type: constr(regex='^Plane$') = 'Plane'
+    type: Literal['Plane'] = 'Plane'
 
     n: List[float] = Field(
         ...,
         description="Plane normal as 3 (x, y, z) values.",
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
     o: List[float] = Field(
         ...,
         description="Plane origin as 3 (x, y, z) values",
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
-    x: List[float] = Field(
+    x: Union[List[float], None] = Field(
         default=None,
         description="Plane x-axis as 3 (x, y, z) values. If None, it is autocalculated.",
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
 
 class LineSegment3D(NoExtraBaseModel):
     """A single line segment face in 3D space."""
 
-    type: constr(regex='^LineSegment3D$') = 'LineSegment3D'
+    type: Literal['LineSegment3D'] = 'LineSegment3D'
 
     p: List[float] = Field(
         ...,
         description="Line segment base point as 3 (x, y, z) values.",
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
     v: List[float] = Field(
         ...,
         description="Line segment direction vector as 3 (x, y, z) values.",
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
 
 class Polyline3D(NoExtraBaseModel):
     """A polyline in 3D space."""
 
-    type: constr(regex='^Polyline3D$') = 'Polyline3D'
+    type: Literal['Polyline3D'] = 'Polyline3D'
 
-    vertices: List[conlist(float, min_items=3, max_items=3)] = Field(
+    vertices: List[conlist(float, min_length=3, max_length=3)] = Field(
         ...,
-        min_items=3,
+        min_length=3,
         description='A list of points representing the the vertices of the polyline. '
         'The list should include at least 3 points and each point '
         'should be a list of 3 (x, y, z) values.'
@@ -138,7 +138,7 @@ class Polyline3D(NoExtraBaseModel):
 class Arc3D(NoExtraBaseModel):
     """A single arc or circle in 3D space."""
 
-    type: constr(regex='^Arc3D$') = 'Arc3D'
+    type: Literal['Arc3D'] = 'Arc3D'
 
     plane: Plane = Field(
         ...,
@@ -169,17 +169,17 @@ class Arc3D(NoExtraBaseModel):
 class Face3D(NoExtraBaseModel):
     """A single planar face in 3D space."""
 
-    type: constr(regex='^Face3D$') = 'Face3D'
+    type: Literal['Face3D'] = 'Face3D'
 
-    boundary: List[conlist(float, min_items=3, max_items=3)] = Field(
+    boundary: List[conlist(float, min_length=3, max_length=3)] = Field(
         ...,
-        min_items=3,
+        min_length=3,
         description='A list of points representing the outer boundary vertices of '
         'the face. The list should include at least 3 points and each point '
         'should be a list of 3 (x, y, z) values.'
     )
 
-    holes: List[conlist(conlist(float, min_items=3, max_items=3), min_items=3)] = Field(
+    holes: Union[List[conlist(conlist(float, min_length=3, max_length=3), min_length=3)], None] = Field(
         default=None,
         description='Optional list of lists with one list for each hole in the face.'
         'Each hole should be a list of at least 3 points and each point a list '
@@ -187,7 +187,7 @@ class Face3D(NoExtraBaseModel):
         'holes in the face.'
     )
 
-    plane: Plane = Field(
+    plane: Union[Plane, None] = Field(
         default=None,
         description='Optional Plane indicating the plane in which the face exists.'
         'If None, the plane will usually be derived from the boundary points.'
@@ -197,24 +197,24 @@ class Face3D(NoExtraBaseModel):
 class Mesh3D(NoExtraBaseModel):
     """A mesh in 3D space."""
 
-    type: constr(regex='^Mesh3D$') = 'Mesh3D'
+    type: Literal['Mesh3D'] = 'Mesh3D'
 
-    vertices: List[conlist(float, min_items=3, max_items=3)] = Field(
+    vertices: List[conlist(float, min_length=3, max_length=3)] = Field(
         ...,
-        min_items=3,
+        min_length=3,
         description='A list of points representing the vertices of the mesh. '
         'The list should include at least 3 points and each point '
         'should be a list of 3 (x, y, z) values.'
     )
 
-    faces: List[conlist(conint(ge=0), min_items=3, max_items=4)] = Field(
+    faces: List[conlist(conint(ge=0), min_length=3, max_length=4)] = Field(
         ...,
-        min_items=1,
+        min_length=1,
         description='A list of lists with each sub-list having either 3 or 4 '
         'integers. These integers correspond to indices within the list of vertices.'
     )
 
-    colors: List[Color] = Field(
+    colors: Union[List[Color], None] = Field(
         None,
         description='An optional list of colors that correspond to either the faces '
         'of the mesh or the vertices of the mesh.'
@@ -224,9 +224,9 @@ class Mesh3D(NoExtraBaseModel):
 class PolyfaceEdgeInfo(NoExtraBaseModel):
     """Optional edge information for Polyface."""
 
-    edge_indices: List[conlist(conint(ge=0), min_items=2, max_items=2)] = Field(
+    edge_indices: List[conlist(conint(ge=0), min_length=2, max_length=2)] = Field(
         ...,
-        min_items=3,
+        min_length=3,
         description='An array objects that each contain two integers. These integers '
         'correspond to indices within the vertices list and each tuple represents '
         'a line segment for an edge of the polyface.'
@@ -234,7 +234,7 @@ class PolyfaceEdgeInfo(NoExtraBaseModel):
 
     edge_types: List[conint(ge=0)] = Field(
         ...,
-        min_items=3,
+        min_length=3,
         description='An array of integers for each edge that parallels the edge_indices '
         'list. An integer of 0 denotes a naked edge, an integer of 1 denotes an '
         'internal edge. Anything higher is a non-manifold edge.'
@@ -244,21 +244,21 @@ class PolyfaceEdgeInfo(NoExtraBaseModel):
 class Polyface3D(NoExtraBaseModel):
     """A Polyface in 3D space."""
 
-    type: constr(regex='^Polyface3D$') = 'Polyface3D'
+    type: Literal['Polyface3D'] = 'Polyface3D'
 
-    vertices: List[conlist(float, min_items=3, max_items=3)] = Field(
+    vertices: List[conlist(float, min_length=3, max_length=3)] = Field(
         ...,
-        min_items=3,
+        min_length=3,
         description='A list of points representing the vertices of the polyface. '
         'The list should include at least 3 points and each point '
         'should be a list of 3 (x, y, z) values.'
     )
 
     face_indices: List[
-        conlist(conlist(conint(ge=0), min_items=3), min_items=1)
+        conlist(conlist(conint(ge=0), min_length=3), min_length=1)
     ] = Field(
         ...,
-        min_items=1,
+        min_length=1,
         description='A list of lists with one list for each face of the polyface. '
         'Each face list must contain at least one sub-list of integers corresponding '
         'to indices within the vertices list. Additional sub-lists of integers may '
@@ -266,7 +266,7 @@ class Polyface3D(NoExtraBaseModel):
         'face while each subsequent sub-list denotes a hole in the face.'
     )
 
-    edge_information: PolyfaceEdgeInfo = Field(
+    edge_information: Union[PolyfaceEdgeInfo, None] = Field(
         default=None,
         description='Optional edge information, which will speed up the '
         'creation of the Polyface object if it is available but should be left '
@@ -278,13 +278,13 @@ class Polyface3D(NoExtraBaseModel):
 class Sphere(NoExtraBaseModel):
     """A sphere object."""
 
-    type: constr(regex='^Sphere$') = 'Sphere'
+    type: Literal['Sphere'] = 'Sphere'
 
     center: List[float] = Field(
         ...,
         description='The center of the sphere as 3 (x, y, z) values.',
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
     radius: float = Field(
@@ -297,21 +297,21 @@ class Sphere(NoExtraBaseModel):
 class Cone(NoExtraBaseModel):
     """A cone object."""
 
-    type: constr(regex='^Cone$') = 'Cone'
+    type: Literal['Cone'] = 'Cone'
 
     vertex: List[float] = Field(
         ...,
         description='The point at the tip of the cone as 3 (x, y, z) values.',
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
     axis: List[float] = Field(
         ...,
         description='The vector representing the direction of the cone as 3 (x, y, z) '
         'values. The vector extends from the vertex to the center of the base.',
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
     angle: float = Field(
@@ -326,14 +326,14 @@ class Cone(NoExtraBaseModel):
 class Cylinder(NoExtraBaseModel):
     """A cylinder object."""
 
-    type: constr(regex='^Cylinder$') = 'Cylinder'
+    type: Literal['Cylinder'] = 'Cylinder'
 
     center: List[float] = Field(
         ...,
         description='The center of the bottom base of the cylinder as '
         '3 (x, y, z) values.',
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
     axis: List[float] = Field(
@@ -341,8 +341,8 @@ class Cylinder(NoExtraBaseModel):
         description='The vector representing the direction of the cylinder as '
         '3 (x, y, z) values. The vector extends from the bottom base center to '
         'the top base center.',
-        min_items=3,
-        max_items=3
+        min_length=3,
+        max_length=3
     )
 
     radius: float = Field(
