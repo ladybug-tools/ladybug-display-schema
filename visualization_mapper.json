@@ -1,0 +1,18 @@
+{
+  "classes": {
+    "DataType": "ladybug_display_schema.visualization",
+    "Default": "ladybug_display_schema.base",
+    "GenericDataType": "ladybug_display_schema.visualization",
+    "Legend2DParameters": "ladybug_display_schema.visualization",
+    "Legend3DParameters": "ladybug_display_schema.visualization",
+    "LegendParameters": "ladybug_display_schema.visualization",
+    "Plane": "ladybug_display_schema.geometry3d",
+    "VisualizationMetaData": "ladybug_display_schema.visualization",
+    "VisualizationSet": "ladybug_display_schema.visualization",
+    "_VisualizationBase": "ladybug_display_schema.visualization"
+  },
+  "enums": {
+    "DataTypes": "ladybug_display_schema.visualization",
+    "Units": "ladybug_display_schema.visualization"
+  }
+}

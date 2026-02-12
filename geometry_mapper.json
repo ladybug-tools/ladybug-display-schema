@@ -1,0 +1,27 @@
+{
+  "classes": {
+    "Arc2D": "ladybug_display_schema.geometry2d",
+    "Arc3D": "ladybug_display_schema.geometry3d",
+    "Cone": "ladybug_display_schema.geometry3d",
+    "Cylinder": "ladybug_display_schema.geometry3d",
+    "Face3D": "ladybug_display_schema.geometry3d",
+    "LineSegment2D": "ladybug_display_schema.geometry2d",
+    "LineSegment3D": "ladybug_display_schema.geometry3d",
+    "Mesh2D": "ladybug_display_schema.geometry2d",
+    "Mesh3D": "ladybug_display_schema.geometry3d",
+    "Plane": "ladybug_display_schema.geometry3d",
+    "Point2D": "ladybug_display_schema.geometry2d",
+    "Point3D": "ladybug_display_schema.geometry3d",
+    "Polyface3D": "ladybug_display_schema.geometry3d",
+    "PolyfaceEdgeInfo": "ladybug_display_schema.geometry3d",
+    "Polygon2D": "ladybug_display_schema.geometry2d",
+    "Polyline2D": "ladybug_display_schema.geometry2d",
+    "Polyline3D": "ladybug_display_schema.geometry3d",
+    "Ray2D": "ladybug_display_schema.geometry2d",
+    "Ray3D": "ladybug_display_schema.geometry3d",
+    "Sphere": "ladybug_display_schema.geometry3d",
+    "Vector2D": "ladybug_display_schema.geometry2d",
+    "Vector3D": "ladybug_display_schema.geometry3d"
+  },
+  "enums": {}
+}

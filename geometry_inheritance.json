@@ -1,0 +1,1498 @@
+{
+  "openapi": "3.0.2",
+  "servers": [],
+  "info": {
+    "description": "Documentation for Ladybug geometry schema",
+    "version": "1.0.0",
+    "title": "Ladybug Geometry Schema",
+    "contact": {
+      "name": "Ladybug Tools",
+      "email": "info@ladybug.tools",
+      "url": "https://github.com/ladybug-tools/ladybug-display-core"
+    },
+    "x-logo": {
+      "url": "https://www.ladybug.tools/assets/img/ladybug-large.png",
+      "altText": "Ladybug logo"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/ladybug-tools/ladybug-display-schema/blob/master/LICENSE"
+    }
+  },
+  "externalDocs": {
+    "description": "OpenAPI Specification with Inheritance",
+    "url": "./geometry_inheritance.json"
+  },
+  "tags": [
+    {
+      "name": "arc2d_model",
+      "x-displayName": "Arc2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Arc2D\" />\n"
+    },
+    {
+      "name": "arc3d_model",
+      "x-displayName": "Arc3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Arc3D\" />\n"
+    },
+    {
+      "name": "color_model",
+      "x-displayName": "Color",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Color\" />\n"
+    },
+    {
+      "name": "cone_model",
+      "x-displayName": "Cone",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Cone\" />\n"
+    },
+    {
+      "name": "cylinder_model",
+      "x-displayName": "Cylinder",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Cylinder\" />\n"
+    },
+    {
+      "name": "face3d_model",
+      "x-displayName": "Face3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Face3D\" />\n"
+    },
+    {
+      "name": "linesegment2d_model",
+      "x-displayName": "LineSegment2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/LineSegment2D\" />\n"
+    },
+    {
+      "name": "linesegment3d_model",
+      "x-displayName": "LineSegment3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/LineSegment3D\" />\n"
+    },
+    {
+      "name": "mesh2d_model",
+      "x-displayName": "Mesh2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Mesh2D\" />\n"
+    },
+    {
+      "name": "mesh3d_model",
+      "x-displayName": "Mesh3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Mesh3D\" />\n"
+    },
+    {
+      "name": "plane_model",
+      "x-displayName": "Plane",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Plane\" />\n"
+    },
+    {
+      "name": "point2d_model",
+      "x-displayName": "Point2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Point2D\" />\n"
+    },
+    {
+      "name": "point3d_model",
+      "x-displayName": "Point3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Point3D\" />\n"
+    },
+    {
+      "name": "polyface3d_model",
+      "x-displayName": "Polyface3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Polyface3D\" />\n"
+    },
+    {
+      "name": "polyfaceedgeinfo_model",
+      "x-displayName": "PolyfaceEdgeInfo",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/PolyfaceEdgeInfo\" />\n"
+    },
+    {
+      "name": "polygon2d_model",
+      "x-displayName": "Polygon2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Polygon2D\" />\n"
+    },
+    {
+      "name": "polyline2d_model",
+      "x-displayName": "Polyline2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Polyline2D\" />\n"
+    },
+    {
+      "name": "polyline3d_model",
+      "x-displayName": "Polyline3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Polyline3D\" />\n"
+    },
+    {
+      "name": "ray2d_model",
+      "x-displayName": "Ray2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Ray2D\" />\n"
+    },
+    {
+      "name": "ray3d_model",
+      "x-displayName": "Ray3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Ray3D\" />\n"
+    },
+    {
+      "name": "sphere_model",
+      "x-displayName": "Sphere",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Sphere\" />\n"
+    },
+    {
+      "name": "vector2d_model",
+      "x-displayName": "Vector2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Vector2D\" />\n"
+    },
+    {
+      "name": "vector3d_model",
+      "x-displayName": "Vector3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Vector3D\" />\n"
+    },
+    {
+      "name": "_openapigenbasemodel_model",
+      "x-displayName": "_OpenAPIGenBaseModel",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/_OpenAPIGenBaseModel\" />\n"
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "Models",
+      "tags": [
+        "_openapigenbasemodel_model",
+        "arc2d_model",
+        "arc3d_model",
+        "color_model",
+        "cone_model",
+        "cylinder_model",
+        "face3d_model",
+        "linesegment2d_model",
+        "linesegment3d_model",
+        "mesh2d_model",
+        "mesh3d_model",
+        "plane_model",
+        "point2d_model",
+        "point3d_model",
+        "polyface3d_model",
+        "polyfaceedgeinfo_model",
+        "polygon2d_model",
+        "polyline2d_model",
+        "polyline3d_model",
+        "ray2d_model",
+        "ray3d_model",
+        "sphere_model",
+        "vector2d_model",
+        "vector3d_model"
+      ]
+    }
+  ],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "Arc2D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "c": {
+                "description": "Center of the arc as 2 (x, y) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "title": "C",
+                "type": "array"
+              },
+              "r": {
+                "description": "A number representing the radius of the arc.",
+                "title": "R",
+                "type": "number",
+                "format": "double"
+              },
+              "type": {
+                "const": "Arc2D",
+                "default": "Arc2D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "a1": {
+                "default": 0,
+                "description": "A number between 0 and 2 * pi for the start angle of the arc.",
+                "maximum": 6.283185307179586,
+                "minimum": 0,
+                "title": "A1",
+                "type": "number",
+                "format": "double"
+              },
+              "a2": {
+                "default": 6.283185307179586,
+                "description": "A number between 0 and 2 * pi for the end angle of the arc.",
+                "maximum": 6.283185307179586,
+                "minimum": 0,
+                "title": "A2",
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "c",
+              "r"
+            ]
+          }
+        ],
+        "description": "A single arc or circle in 2D space.",
+        "title": "Arc2D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Arc3D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "plane": {
+                "$ref": "#/components/schemas/Plane",
+                "description": "A Plane in which the arc lies with an origin representing the center of the circle for the arc."
+              },
+              "radius": {
+                "description": "A number representing the radius of the arc.",
+                "title": "Radius",
+                "type": "number",
+                "format": "double"
+              },
+              "type": {
+                "const": "Arc3D",
+                "default": "Arc3D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "a1": {
+                "default": 0,
+                "description": "A number between 0 and 2 * pi for the start angle of the arc.",
+                "maximum": 6.283185307179586,
+                "minimum": 0,
+                "title": "A1",
+                "type": "number",
+                "format": "double"
+              },
+              "a2": {
+                "default": 6.283185307179586,
+                "description": "A number between 0 and 2 * pi for the end angle of the arc.",
+                "maximum": 6.283185307179586,
+                "minimum": 0,
+                "title": "A2",
+                "type": "number",
+                "format": "double"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "plane",
+              "radius"
+            ]
+          }
+        ],
+        "description": "A single arc or circle in 3D space.",
+        "title": "Arc3D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Color": {
+        "additionalProperties": false,
+        "description": "A RGB color.",
+        "properties": {
+          "r": {
+            "description": "Value for red channel.",
+            "maximum": 255,
+            "minimum": 0,
+            "title": "R",
+            "type": "integer",
+            "format": "int32"
+          },
+          "g": {
+            "description": "Value for green channel.",
+            "maximum": 255,
+            "minimum": 0,
+            "title": "G",
+            "type": "integer",
+            "format": "int32"
+          },
+          "b": {
+            "description": "Value for blue channel.",
+            "maximum": 255,
+            "minimum": 0,
+            "title": "B",
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "const": "Color",
+            "default": "Color",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "a": {
+            "default": 255,
+            "description": "Value for the alpha channel, which defines the opacity as a number between 0 (fully transparent) and 255 (fully opaque).",
+            "maximum": 255,
+            "minimum": 0,
+            "title": "A",
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "r",
+          "g",
+          "b"
+        ],
+        "title": "Color",
+        "type": "object",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Cone": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vertex": {
+                "description": "The point at the tip of the cone as 3 (x, y, z) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "Vertex",
+                "type": "array"
+              },
+              "axis": {
+                "description": "The vector representing the direction of the cone as 3 (x, y, z) values. The vector extends from the vertex to the center of the base.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "Axis",
+                "type": "array"
+              },
+              "angle": {
+                "description": "An angle in radians representing the half angle between the axis and the surface.",
+                "exclusiveMaximum": 1.5707963267948966,
+                "exclusiveMinimum": 0,
+                "title": "Angle",
+                "type": "number",
+                "format": "double"
+              },
+              "type": {
+                "const": "Cone",
+                "default": "Cone",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "vertex",
+              "axis",
+              "angle"
+            ]
+          }
+        ],
+        "description": "A cone object.",
+        "title": "Cone",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Cylinder": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "center": {
+                "description": "The center of the bottom base of the cylinder as 3 (x, y, z) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "Center",
+                "type": "array"
+              },
+              "axis": {
+                "description": "The vector representing the direction of the cylinder as 3 (x, y, z) values. The vector extends from the bottom base center to the top base center.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "Axis",
+                "type": "array"
+              },
+              "radius": {
+                "description": "A number representing the radius of the cylinder.",
+                "exclusiveMinimum": 0,
+                "title": "Radius",
+                "type": "number",
+                "format": "double"
+              },
+              "type": {
+                "const": "Cylinder",
+                "default": "Cylinder",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "center",
+              "axis",
+              "radius"
+            ]
+          }
+        ],
+        "description": "A cylinder object.",
+        "title": "Cylinder",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Face3D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "boundary": {
+                "description": "A list of points representing the outer boundary vertices of the face. The list should include at least 3 points and each point should be a list of 3 (x, y, z) values.",
+                "items": {
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "maxItems": 3,
+                  "minItems": 3,
+                  "type": "array"
+                },
+                "minItems": 3,
+                "title": "Boundary",
+                "type": "array"
+              },
+              "type": {
+                "const": "Face3D",
+                "default": "Face3D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "holes": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "items": {
+                        "items": {
+                          "type": "number"
+                        },
+                        "maxItems": 3,
+                        "minItems": 3,
+                        "type": "array"
+                      },
+                      "minItems": 3,
+                      "type": "array"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Optional list of lists with one list for each hole in the face.Each hole should be a list of at least 3 points and each point a list of 3 (x, y, z) values. If None, it will be assumed that there are no holes in the face.",
+                "title": "Holes"
+              },
+              "plane": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Plane"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Optional Plane indicating the plane in which the face exists.If None, the plane will usually be derived from the boundary points."
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "boundary"
+            ]
+          }
+        ],
+        "description": "A single planar face in 3D space.",
+        "title": "Face3D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "LineSegment2D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "p": {
+                "description": "Line segment base point as 2 (x, y) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "title": "P",
+                "type": "array"
+              },
+              "v": {
+                "description": "Line segment direction vector as 2 (x, y) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "title": "V",
+                "type": "array"
+              },
+              "type": {
+                "const": "LineSegment2D",
+                "default": "LineSegment2D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "p",
+              "v"
+            ]
+          }
+        ],
+        "description": "A single line segment face in 2D space.",
+        "title": "LineSegment2D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "LineSegment3D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "p": {
+                "description": "Line segment base point as 3 (x, y, z) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "P",
+                "type": "array"
+              },
+              "v": {
+                "description": "Line segment direction vector as 3 (x, y, z) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "V",
+                "type": "array"
+              },
+              "type": {
+                "const": "LineSegment3D",
+                "default": "LineSegment3D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "p",
+              "v"
+            ]
+          }
+        ],
+        "description": "A single line segment face in 3D space.",
+        "title": "LineSegment3D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Mesh2D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "description": "A list of points representing the vertices of the mesh. The list should include at least 3 points and each point should be a list of 2 (x, y) values.",
+                "items": {
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "minItems": 3,
+                "title": "Vertices",
+                "type": "array"
+              },
+              "faces": {
+                "description": "A list of lists with each sub-list having either 3 or 4 integers. These integers correspond to indices within the list of vertices.",
+                "items": {
+                  "items": {
+                    "minimum": 0,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "maxItems": 4,
+                  "minItems": 3,
+                  "type": "array"
+                },
+                "minItems": 1,
+                "title": "Faces",
+                "type": "array"
+              },
+              "type": {
+                "const": "Mesh2D",
+                "default": "Mesh2D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "colors": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/Color"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "An optional list of colors that correspond to either the faces of the mesh or the vertices of the mesh.",
+                "title": "Colors"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "vertices",
+              "faces"
+            ]
+          }
+        ],
+        "description": "A mesh in 2D space.",
+        "title": "Mesh2D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Mesh3D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "description": "A list of points representing the vertices of the mesh. The list should include at least 3 points and each point should be a list of 3 (x, y, z) values.",
+                "items": {
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "maxItems": 3,
+                  "minItems": 3,
+                  "type": "array"
+                },
+                "minItems": 3,
+                "title": "Vertices",
+                "type": "array"
+              },
+              "faces": {
+                "description": "A list of lists with each sub-list having either 3 or 4 integers. These integers correspond to indices within the list of vertices.",
+                "items": {
+                  "items": {
+                    "minimum": 0,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "maxItems": 4,
+                  "minItems": 3,
+                  "type": "array"
+                },
+                "minItems": 1,
+                "title": "Faces",
+                "type": "array"
+              },
+              "type": {
+                "const": "Mesh3D",
+                "default": "Mesh3D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "colors": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/Color"
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "An optional list of colors that correspond to either the faces of the mesh or the vertices of the mesh.",
+                "title": "Colors"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "vertices",
+              "faces"
+            ]
+          }
+        ],
+        "description": "A mesh in 3D space.",
+        "title": "Mesh3D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Plane": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "n": {
+                "description": "Plane normal as 3 (x, y, z) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "N",
+                "type": "array"
+              },
+              "o": {
+                "description": "Plane origin as 3 (x, y, z) values",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "O",
+                "type": "array"
+              },
+              "type": {
+                "const": "Plane",
+                "default": "Plane",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "x": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 3,
+                    "minItems": 3,
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Plane x-axis as 3 (x, y, z) values. If None, it is autocalculated.",
+                "title": "X"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "n",
+              "o"
+            ]
+          }
+        ],
+        "description": "A plane object.",
+        "title": "Plane",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Point2D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "x": {
+                "description": "Number for X coordinate.",
+                "title": "X",
+                "type": "number",
+                "format": "double"
+              },
+              "y": {
+                "description": "Number for Y coordinate.",
+                "title": "Y",
+                "type": "number",
+                "format": "double"
+              },
+              "type": {
+                "const": "Point2D",
+                "default": "Point2D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        ],
+        "description": "A point object in 2D space.",
+        "title": "Point2D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Point3D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "x": {
+                "description": "Number for X coordinate.",
+                "title": "X",
+                "type": "number",
+                "format": "double"
+              },
+              "y": {
+                "description": "Number for Y coordinate.",
+                "title": "Y",
+                "type": "number",
+                "format": "double"
+              },
+              "z": {
+                "description": "Number for Z coordinate.",
+                "title": "Z",
+                "type": "number",
+                "format": "double"
+              },
+              "type": {
+                "const": "Point3D",
+                "default": "Point3D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "x",
+              "y",
+              "z"
+            ]
+          }
+        ],
+        "description": "A point object in 3D space.",
+        "title": "Point3D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Polyface3D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "description": "A list of points representing the vertices of the polyface. The list should include at least 3 points and each point should be a list of 3 (x, y, z) values.",
+                "items": {
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "maxItems": 3,
+                  "minItems": 3,
+                  "type": "array"
+                },
+                "minItems": 3,
+                "title": "Vertices",
+                "type": "array"
+              },
+              "face_indices": {
+                "description": "A list of lists with one list for each face of the polyface. Each face list must contain at least one sub-list of integers corresponding to indices within the vertices list. Additional sub-lists of integers may follow this one such that the first sub-list denotes the boundary of the face while each subsequent sub-list denotes a hole in the face.",
+                "items": {
+                  "items": {
+                    "items": {
+                      "minimum": 0,
+                      "type": "integer",
+                      "format": "int32"
+                    },
+                    "minItems": 3,
+                    "type": "array"
+                  },
+                  "minItems": 1,
+                  "type": "array"
+                },
+                "minItems": 1,
+                "title": "Face Indices",
+                "type": "array"
+              },
+              "type": {
+                "const": "Polyface3D",
+                "default": "Polyface3D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "edge_information": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/PolyfaceEdgeInfo"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Optional edge information, which will speed up the creation of the Polyface object if it is available but should be left as None if it is unknown. If None, edge_information will be computed from the vertices and face_indices inputs."
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "vertices",
+              "face_indices"
+            ]
+          }
+        ],
+        "description": "A Polyface in 3D space.",
+        "title": "Polyface3D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "PolyfaceEdgeInfo": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "edge_indices": {
+                "description": "An array objects that each contain two integers. These integers correspond to indices within the vertices list and each tuple represents a line segment for an edge of the polyface.",
+                "items": {
+                  "items": {
+                    "minimum": 0,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "minItems": 3,
+                "title": "Edge Indices",
+                "type": "array"
+              },
+              "edge_types": {
+                "description": "An array of integers for each edge that parallels the edge_indices list. An integer of 0 denotes a naked edge, an integer of 1 denotes an internal edge. Anything higher is a non-manifold edge.",
+                "items": {
+                  "minimum": 0,
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "minItems": 3,
+                "title": "Edge Types",
+                "type": "array"
+              },
+              "type": {
+                "title": "Type",
+                "default": "PolyfaceEdgeInfo",
+                "type": "string",
+                "pattern": "^PolyfaceEdgeInfo$",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "edge_indices",
+              "edge_types"
+            ]
+          }
+        ],
+        "description": "Optional edge information for Polyface.",
+        "title": "PolyfaceEdgeInfo",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Polygon2D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "description": "A list of points representing the vertices of the polygon. The list should include at least 3 points and each point should be a list of 2 (x, y) values.",
+                "items": {
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "minItems": 3,
+                "title": "Vertices",
+                "type": "array"
+              },
+              "type": {
+                "const": "Polygon2D",
+                "default": "Polygon2D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "vertices"
+            ]
+          }
+        ],
+        "description": "A polygon in 2D space (without holes).",
+        "title": "Polygon2D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Polyline2D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "description": "A list of points representing the the vertices of the polyline. The list should include at least 3 points and each point should be a list of 2 (x, y) values.",
+                "items": {
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "maxItems": 2,
+                  "minItems": 2,
+                  "type": "array"
+                },
+                "minItems": 3,
+                "title": "Vertices",
+                "type": "array"
+              },
+              "type": {
+                "const": "Polyline2D",
+                "default": "Polyline2D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "interpolated": {
+                "default": false,
+                "description": "A boolean to note whether the polyline should be interpolated between the input vertices when it is translated to other interfaces.",
+                "title": "Interpolated",
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "vertices"
+            ]
+          }
+        ],
+        "description": "A polyline in 2D space.",
+        "title": "Polyline2D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Polyline3D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "vertices": {
+                "description": "A list of points representing the the vertices of the polyline. The list should include at least 3 points and each point should be a list of 3 (x, y, z) values.",
+                "items": {
+                  "items": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "maxItems": 3,
+                  "minItems": 3,
+                  "type": "array"
+                },
+                "minItems": 3,
+                "title": "Vertices",
+                "type": "array"
+              },
+              "type": {
+                "const": "Polyline3D",
+                "default": "Polyline3D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "interpolated": {
+                "default": false,
+                "description": "A boolean to note whether the polyline should be interpolated between the input vertices when it is translated to other interfaces.",
+                "title": "Interpolated",
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "vertices"
+            ]
+          }
+        ],
+        "description": "A polyline in 3D space.",
+        "title": "Polyline3D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Ray2D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "p": {
+                "description": "Ray base point as 2 (x, y) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "title": "P",
+                "type": "array"
+              },
+              "v": {
+                "description": "Ray direction vector as 2 (x, y) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 2,
+                "minItems": 2,
+                "title": "V",
+                "type": "array"
+              },
+              "type": {
+                "const": "Ray2D",
+                "default": "Ray2D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "p",
+              "v"
+            ]
+          }
+        ],
+        "description": "A ray object in 2D space.",
+        "title": "Ray2D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Ray3D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "p": {
+                "description": "Ray base point as 3 (x, y, z) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "P",
+                "type": "array"
+              },
+              "v": {
+                "description": "Ray direction vector as 3 (x, y, z) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "V",
+                "type": "array"
+              },
+              "type": {
+                "const": "Ray3D",
+                "default": "Ray3D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "p",
+              "v"
+            ]
+          }
+        ],
+        "description": "A ray object in 3D space.",
+        "title": "Ray3D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Sphere": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "center": {
+                "description": "The center of the sphere as 3 (x, y, z) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "Center",
+                "type": "array"
+              },
+              "radius": {
+                "description": "A number representing the radius of the sphere.",
+                "exclusiveMinimum": 0,
+                "title": "Radius",
+                "type": "number",
+                "format": "double"
+              },
+              "type": {
+                "const": "Sphere",
+                "default": "Sphere",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "center",
+              "radius"
+            ]
+          }
+        ],
+        "description": "A sphere object.",
+        "title": "Sphere",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Vector2D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "x": {
+                "description": "Number for X coordinate.",
+                "title": "X",
+                "type": "number",
+                "format": "double"
+              },
+              "y": {
+                "description": "Number for Y coordinate.",
+                "title": "Y",
+                "type": "number",
+                "format": "double"
+              },
+              "type": {
+                "const": "Vector2D",
+                "default": "Vector2D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        ],
+        "description": "A vector object in 2D space.",
+        "title": "Vector2D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "Vector3D": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "x": {
+                "description": "Number for X coordinate.",
+                "title": "X",
+                "type": "number",
+                "format": "double"
+              },
+              "y": {
+                "description": "Number for Y coordinate.",
+                "title": "Y",
+                "type": "number",
+                "format": "double"
+              },
+              "z": {
+                "description": "Number for Z coordinate.",
+                "title": "Z",
+                "type": "number",
+                "format": "double"
+              },
+              "type": {
+                "const": "Vector3D",
+                "default": "Vector3D",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "x",
+              "y",
+              "z"
+            ]
+          }
+        ],
+        "description": "A vector object in 3D space.",
+        "title": "Vector3D",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      },
+      "_OpenAPIGenBaseModel": {
+        "properties": {
+          "type": {
+            "default": "InvalidType",
+            "description": "A base class to use when there is no baseclass available to fall on.",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "title": "_OpenAPIGenBaseModel",
+        "type": "object",
+        "discriminator": {
+          "propertyName": "type"
+        }
+      }
+    }
+  }
+}

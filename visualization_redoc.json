@@ -1,0 +1,3925 @@
+{
+  "openapi": "3.0.2",
+  "servers": [],
+  "info": {
+    "description": "Documentation for Honeybee model schema",
+    "version": "1.0.0",
+    "title": "Ladybug Visualization Schema",
+    "contact": {
+      "name": "Ladybug Tools",
+      "email": "info@ladybug.tools",
+      "url": "https://github.com/ladybug-tools/ladybug-display-core"
+    },
+    "x-logo": {
+      "url": "https://www.ladybug.tools/assets/img/ladybug-large.png",
+      "altText": "Ladybug logo"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/ladybug-tools/ladybug-display-schema/blob/master/LICENSE"
+    }
+  },
+  "externalDocs": {
+    "description": "OpenAPI Specification with Inheritance",
+    "url": "./visualization_inheritance.json"
+  },
+  "tags": [
+    {
+      "name": "analysisgeometry_model",
+      "x-displayName": "AnalysisGeometry",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/AnalysisGeometry\" />\n"
+    },
+    {
+      "name": "arc2d_model",
+      "x-displayName": "Arc2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Arc2D\" />\n"
+    },
+    {
+      "name": "arc3d_model",
+      "x-displayName": "Arc3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Arc3D\" />\n"
+    },
+    {
+      "name": "color_model",
+      "x-displayName": "Color",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Color\" />\n"
+    },
+    {
+      "name": "cone_model",
+      "x-displayName": "Cone",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Cone\" />\n"
+    },
+    {
+      "name": "contextgeometry_model",
+      "x-displayName": "ContextGeometry",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/ContextGeometry\" />\n"
+    },
+    {
+      "name": "cylinder_model",
+      "x-displayName": "Cylinder",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Cylinder\" />\n"
+    },
+    {
+      "name": "datatype_model",
+      "x-displayName": "DataType",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DataType\" />\n"
+    },
+    {
+      "name": "datatypes_model",
+      "x-displayName": "DataTypes",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DataTypes\" />\n"
+    },
+    {
+      "name": "default_model",
+      "x-displayName": "Default",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Default\" />\n"
+    },
+    {
+      "name": "displayarc2d_model",
+      "x-displayName": "DisplayArc2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayArc2D\" />\n"
+    },
+    {
+      "name": "displayarc3d_model",
+      "x-displayName": "DisplayArc3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayArc3D\" />\n"
+    },
+    {
+      "name": "displaycone_model",
+      "x-displayName": "DisplayCone",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayCone\" />\n"
+    },
+    {
+      "name": "displaycylinder_model",
+      "x-displayName": "DisplayCylinder",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayCylinder\" />\n"
+    },
+    {
+      "name": "displayface3d_model",
+      "x-displayName": "DisplayFace3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayFace3D\" />\n"
+    },
+    {
+      "name": "displaylinesegment2d_model",
+      "x-displayName": "DisplayLineSegment2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayLineSegment2D\" />\n"
+    },
+    {
+      "name": "displaylinesegment3d_model",
+      "x-displayName": "DisplayLineSegment3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayLineSegment3D\" />\n"
+    },
+    {
+      "name": "displaymesh2d_model",
+      "x-displayName": "DisplayMesh2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayMesh2D\" />\n"
+    },
+    {
+      "name": "displaymesh3d_model",
+      "x-displayName": "DisplayMesh3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayMesh3D\" />\n"
+    },
+    {
+      "name": "displaymodes_model",
+      "x-displayName": "DisplayModes",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayModes\" />\n"
+    },
+    {
+      "name": "displayplane_model",
+      "x-displayName": "DisplayPlane",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayPlane\" />\n"
+    },
+    {
+      "name": "displaypoint2d_model",
+      "x-displayName": "DisplayPoint2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayPoint2D\" />\n"
+    },
+    {
+      "name": "displaypoint3d_model",
+      "x-displayName": "DisplayPoint3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayPoint3D\" />\n"
+    },
+    {
+      "name": "displaypolyface3d_model",
+      "x-displayName": "DisplayPolyface3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayPolyface3D\" />\n"
+    },
+    {
+      "name": "displaypolygon2d_model",
+      "x-displayName": "DisplayPolygon2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayPolygon2D\" />\n"
+    },
+    {
+      "name": "displaypolyline2d_model",
+      "x-displayName": "DisplayPolyline2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayPolyline2D\" />\n"
+    },
+    {
+      "name": "displaypolyline3d_model",
+      "x-displayName": "DisplayPolyline3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayPolyline3D\" />\n"
+    },
+    {
+      "name": "displayray2d_model",
+      "x-displayName": "DisplayRay2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayRay2D\" />\n"
+    },
+    {
+      "name": "displayray3d_model",
+      "x-displayName": "DisplayRay3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayRay3D\" />\n"
+    },
+    {
+      "name": "displaysphere_model",
+      "x-displayName": "DisplaySphere",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplaySphere\" />\n"
+    },
+    {
+      "name": "displaytext3d_model",
+      "x-displayName": "DisplayText3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayText3D\" />\n"
+    },
+    {
+      "name": "displayvector2d_model",
+      "x-displayName": "DisplayVector2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayVector2D\" />\n"
+    },
+    {
+      "name": "displayvector3d_model",
+      "x-displayName": "DisplayVector3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/DisplayVector3D\" />\n"
+    },
+    {
+      "name": "face3d_model",
+      "x-displayName": "Face3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Face3D\" />\n"
+    },
+    {
+      "name": "genericdatatype_model",
+      "x-displayName": "GenericDataType",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/GenericDataType\" />\n"
+    },
+    {
+      "name": "horizontalalignments_model",
+      "x-displayName": "HorizontalAlignments",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/HorizontalAlignments\" />\n"
+    },
+    {
+      "name": "legend2dparameters_model",
+      "x-displayName": "Legend2DParameters",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Legend2DParameters\" />\n"
+    },
+    {
+      "name": "legend3dparameters_model",
+      "x-displayName": "Legend3DParameters",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Legend3DParameters\" />\n"
+    },
+    {
+      "name": "legendparameters_model",
+      "x-displayName": "LegendParameters",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/LegendParameters\" />\n"
+    },
+    {
+      "name": "linesegment2d_model",
+      "x-displayName": "LineSegment2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/LineSegment2D\" />\n"
+    },
+    {
+      "name": "linesegment3d_model",
+      "x-displayName": "LineSegment3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/LineSegment3D\" />\n"
+    },
+    {
+      "name": "linetypes_model",
+      "x-displayName": "LineTypes",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/LineTypes\" />\n"
+    },
+    {
+      "name": "mesh2d_model",
+      "x-displayName": "Mesh2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Mesh2D\" />\n"
+    },
+    {
+      "name": "mesh3d_model",
+      "x-displayName": "Mesh3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Mesh3D\" />\n"
+    },
+    {
+      "name": "plane_model",
+      "x-displayName": "Plane",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Plane\" />\n"
+    },
+    {
+      "name": "point2d_model",
+      "x-displayName": "Point2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Point2D\" />\n"
+    },
+    {
+      "name": "point3d_model",
+      "x-displayName": "Point3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Point3D\" />\n"
+    },
+    {
+      "name": "polyface3d_model",
+      "x-displayName": "Polyface3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Polyface3D\" />\n"
+    },
+    {
+      "name": "polyfaceedgeinfo_model",
+      "x-displayName": "PolyfaceEdgeInfo",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/PolyfaceEdgeInfo\" />\n"
+    },
+    {
+      "name": "polygon2d_model",
+      "x-displayName": "Polygon2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Polygon2D\" />\n"
+    },
+    {
+      "name": "polyline2d_model",
+      "x-displayName": "Polyline2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Polyline2D\" />\n"
+    },
+    {
+      "name": "polyline3d_model",
+      "x-displayName": "Polyline3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Polyline3D\" />\n"
+    },
+    {
+      "name": "ray2d_model",
+      "x-displayName": "Ray2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Ray2D\" />\n"
+    },
+    {
+      "name": "ray3d_model",
+      "x-displayName": "Ray3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Ray3D\" />\n"
+    },
+    {
+      "name": "sphere_model",
+      "x-displayName": "Sphere",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Sphere\" />\n"
+    },
+    {
+      "name": "units_model",
+      "x-displayName": "Units",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Units\" />\n"
+    },
+    {
+      "name": "vector2d_model",
+      "x-displayName": "Vector2D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Vector2D\" />\n"
+    },
+    {
+      "name": "vector3d_model",
+      "x-displayName": "Vector3D",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/Vector3D\" />\n"
+    },
+    {
+      "name": "verticalalignments_model",
+      "x-displayName": "VerticalAlignments",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/VerticalAlignments\" />\n"
+    },
+    {
+      "name": "visualizationdata_model",
+      "x-displayName": "VisualizationData",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/VisualizationData\" />\n"
+    },
+    {
+      "name": "visualizationmetadata_model",
+      "x-displayName": "VisualizationMetaData",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/VisualizationMetaData\" />\n"
+    },
+    {
+      "name": "visualizationset_model",
+      "x-displayName": "VisualizationSet",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/VisualizationSet\" />\n"
+    },
+    {
+      "name": "_openapigenbasemodel_model",
+      "x-displayName": "_OpenAPIGenBaseModel",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/_OpenAPIGenBaseModel\" />\n"
+    },
+    {
+      "name": "_visualizationbase_model",
+      "x-displayName": "_VisualizationBase",
+      "description": "<SchemaDefinition schemaRef=\"#/components/schemas/_VisualizationBase\" />\n"
+    }
+  ],
+  "x-tagGroups": [
+    {
+      "name": "Models",
+      "tags": [
+        "_openapigenbasemodel_model",
+        "_visualizationbase_model",
+        "analysisgeometry_model",
+        "arc2d_model",
+        "arc3d_model",
+        "color_model",
+        "cone_model",
+        "contextgeometry_model",
+        "cylinder_model",
+        "datatype_model",
+        "datatypes_model",
+        "default_model",
+        "displayarc2d_model",
+        "displayarc3d_model",
+        "displaycone_model",
+        "displaycylinder_model",
+        "displayface3d_model",
+        "displaylinesegment2d_model",
+        "displaylinesegment3d_model",
+        "displaymesh2d_model",
+        "displaymesh3d_model",
+        "displaymodes_model",
+        "displayplane_model",
+        "displaypoint2d_model",
+        "displaypoint3d_model",
+        "displaypolyface3d_model",
+        "displaypolygon2d_model",
+        "displaypolyline2d_model",
+        "displaypolyline3d_model",
+        "displayray2d_model",
+        "displayray3d_model",
+        "displaysphere_model",
+        "displaytext3d_model",
+        "displayvector2d_model",
+        "displayvector3d_model",
+        "face3d_model",
+        "genericdatatype_model",
+        "horizontalalignments_model",
+        "legend2dparameters_model",
+        "legend3dparameters_model",
+        "legendparameters_model",
+        "linesegment2d_model",
+        "linesegment3d_model",
+        "linetypes_model",
+        "mesh2d_model",
+        "mesh3d_model",
+        "plane_model",
+        "point2d_model",
+        "point3d_model",
+        "polyface3d_model",
+        "polyfaceedgeinfo_model",
+        "polygon2d_model",
+        "polyline2d_model",
+        "polyline3d_model",
+        "ray2d_model",
+        "ray3d_model",
+        "sphere_model",
+        "units_model",
+        "vector2d_model",
+        "vector3d_model",
+        "verticalalignments_model",
+        "visualizationdata_model",
+        "visualizationmetadata_model",
+        "visualizationset_model"
+      ]
+    }
+  ],
+  "paths": {},
+  "components": {
+    "schemas": {
+      "AnalysisGeometry": {
+        "additionalProperties": false,
+        "description": "An object where multiple data streams correspond to the same geometry.",
+        "properties": {
+          "identifier": {
+            "description": "Text string for a unique object ID. Must be less than 100 characters and not contain spaces or special characters.",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[.A-Za-z0-9_-]+$",
+            "title": "Identifier",
+            "type": "string"
+          },
+          "geometry": {
+            "description": "A list of ladybug-geometry objects that is aligned with the values in the input data_sets. The length of this list should usually be equal to the total number of values in each data_set, indicating that each geometry gets a single color. Alternatively, if all of the geometry objects are meshes, the number of values in the data can be equal to the total number of faces across the meshes or the total number of vertices across the meshes.",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vector2D"
+                },
+                {
+                  "$ref": "#/components/schemas/Point2D"
+                },
+                {
+                  "$ref": "#/components/schemas/Ray2D"
+                },
+                {
+                  "$ref": "#/components/schemas/LineSegment2D"
+                },
+                {
+                  "$ref": "#/components/schemas/Polyline2D"
+                },
+                {
+                  "$ref": "#/components/schemas/Arc2D"
+                },
+                {
+                  "$ref": "#/components/schemas/Polygon2D"
+                },
+                {
+                  "$ref": "#/components/schemas/Mesh2D"
+                },
+                {
+                  "$ref": "#/components/schemas/Vector3D"
+                },
+                {
+                  "$ref": "#/components/schemas/Point3D"
+                },
+                {
+                  "$ref": "#/components/schemas/Ray3D"
+                },
+                {
+                  "$ref": "#/components/schemas/Plane"
+                },
+                {
+                  "$ref": "#/components/schemas/LineSegment3D"
+                },
+                {
+                  "$ref": "#/components/schemas/Polyline3D"
+                },
+                {
+                  "$ref": "#/components/schemas/Arc3D"
+                },
+                {
+                  "$ref": "#/components/schemas/Face3D"
+                },
+                {
+                  "$ref": "#/components/schemas/Mesh3D"
+                },
+                {
+                  "$ref": "#/components/schemas/Polyface3D"
+                },
+                {
+                  "$ref": "#/components/schemas/Sphere"
+                },
+                {
+                  "$ref": "#/components/schemas/Cone"
+                },
+                {
+                  "$ref": "#/components/schemas/Cylinder"
+                }
+              ]
+            },
+            "title": "Geometry",
+            "type": "array"
+          },
+          "data_sets": {
+            "description": "An list of VisualizationData objects representing the data sets that are associated with the input geometry.",
+            "items": {
+              "$ref": "#/components/schemas/VisualizationData"
+            },
+            "minItems": 1,
+            "title": "Data Sets",
+            "type": "array"
+          },
+          "display_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Display name of the object with no character restrictions. This is typically used to set the layer of the object in the interface that renders the VisualizationSet. A :: in the display_name can be used to denote sub-layers following a convention of ParentLayer::SubLayer. If not set, the display_name will be equal to the object identifier.",
+            "title": "Display Name"
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "AnalysisGeometry",
+            "default": "AnalysisGeometry",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "active_data": {
+            "default": 0,
+            "description": "An integer to denote which of the input data_sets should be displayed by default.",
+            "title": "Active Data",
+            "type": "integer",
+            "format": "int32"
+          },
+          "display_mode": {
+            "$ref": "#/components/schemas/DisplayModes",
+            "default": "Surface",
+            "description": "Text to indicate the display mode (surface, wireframe, etc.). The DisplayModes enumeration contains all acceptable types."
+          },
+          "hidden": {
+            "default": false,
+            "description": "A boolean to note whether the geometry is hidden by default and must be un-hidden to be visible in the 3D scene.",
+            "title": "Hidden",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "identifier",
+          "geometry",
+          "data_sets"
+        ],
+        "title": "AnalysisGeometry",
+        "type": "object"
+      },
+      "Arc2D": {
+        "additionalProperties": false,
+        "description": "A single arc or circle in 2D space.",
+        "properties": {
+          "c": {
+            "description": "Center of the arc as 2 (x, y) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "C",
+            "type": "array"
+          },
+          "r": {
+            "description": "A number representing the radius of the arc.",
+            "title": "R",
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "const": "Arc2D",
+            "default": "Arc2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "a1": {
+            "default": 0,
+            "description": "A number between 0 and 2 * pi for the start angle of the arc.",
+            "maximum": 6.283185307179586,
+            "minimum": 0,
+            "title": "A1",
+            "type": "number",
+            "format": "double"
+          },
+          "a2": {
+            "default": 6.283185307179586,
+            "description": "A number between 0 and 2 * pi for the end angle of the arc.",
+            "maximum": 6.283185307179586,
+            "minimum": 0,
+            "title": "A2",
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "c",
+          "r"
+        ],
+        "title": "Arc2D",
+        "type": "object"
+      },
+      "Arc3D": {
+        "additionalProperties": false,
+        "description": "A single arc or circle in 3D space.",
+        "properties": {
+          "plane": {
+            "$ref": "#/components/schemas/Plane",
+            "description": "A Plane in which the arc lies with an origin representing the center of the circle for the arc."
+          },
+          "radius": {
+            "description": "A number representing the radius of the arc.",
+            "title": "Radius",
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "const": "Arc3D",
+            "default": "Arc3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "a1": {
+            "default": 0,
+            "description": "A number between 0 and 2 * pi for the start angle of the arc.",
+            "maximum": 6.283185307179586,
+            "minimum": 0,
+            "title": "A1",
+            "type": "number",
+            "format": "double"
+          },
+          "a2": {
+            "default": 6.283185307179586,
+            "description": "A number between 0 and 2 * pi for the end angle of the arc.",
+            "maximum": 6.283185307179586,
+            "minimum": 0,
+            "title": "A2",
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "plane",
+          "radius"
+        ],
+        "title": "Arc3D",
+        "type": "object"
+      },
+      "Color": {
+        "additionalProperties": false,
+        "description": "A RGB color.",
+        "properties": {
+          "r": {
+            "description": "Value for red channel.",
+            "maximum": 255,
+            "minimum": 0,
+            "title": "R",
+            "type": "integer",
+            "format": "int32"
+          },
+          "g": {
+            "description": "Value for green channel.",
+            "maximum": 255,
+            "minimum": 0,
+            "title": "G",
+            "type": "integer",
+            "format": "int32"
+          },
+          "b": {
+            "description": "Value for blue channel.",
+            "maximum": 255,
+            "minimum": 0,
+            "title": "B",
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "const": "Color",
+            "default": "Color",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "a": {
+            "default": 255,
+            "description": "Value for the alpha channel, which defines the opacity as a number between 0 (fully transparent) and 255 (fully opaque).",
+            "maximum": 255,
+            "minimum": 0,
+            "title": "A",
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "required": [
+          "r",
+          "g",
+          "b"
+        ],
+        "title": "Color",
+        "type": "object"
+      },
+      "Cone": {
+        "additionalProperties": false,
+        "description": "A cone object.",
+        "properties": {
+          "vertex": {
+            "description": "The point at the tip of the cone as 3 (x, y, z) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Vertex",
+            "type": "array"
+          },
+          "axis": {
+            "description": "The vector representing the direction of the cone as 3 (x, y, z) values. The vector extends from the vertex to the center of the base.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Axis",
+            "type": "array"
+          },
+          "angle": {
+            "description": "An angle in radians representing the half angle between the axis and the surface.",
+            "exclusiveMaximum": 1.5707963267948966,
+            "exclusiveMinimum": 0,
+            "title": "Angle",
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "const": "Cone",
+            "default": "Cone",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "vertex",
+          "axis",
+          "angle"
+        ],
+        "title": "Cone",
+        "type": "object"
+      },
+      "ContextGeometry": {
+        "additionalProperties": false,
+        "description": "An object representing context geometry to display.",
+        "properties": {
+          "identifier": {
+            "description": "Text string for a unique object ID. Must be less than 100 characters and not contain spaces or special characters.",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[.A-Za-z0-9_-]+$",
+            "title": "Identifier",
+            "type": "string"
+          },
+          "geometry": {
+            "description": "A list of ladybug-geometry or ladybug-display objects that gives context to analysis geometry or other aspects of the visualization. Typically, these will display in wireframe around the geometry, though the properties of display geometry can be used to customize the visualization.",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/DisplayVector2D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayPoint2D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayRay2D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayLineSegment2D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayPolyline2D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayArc2D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayPolygon2D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayMesh2D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayVector3D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayPoint3D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayRay3D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayPlane"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayLineSegment3D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayPolyline3D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayArc3D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayFace3D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayMesh3D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayPolyface3D"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplaySphere"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayCone"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayCylinder"
+                },
+                {
+                  "$ref": "#/components/schemas/DisplayText3D"
+                }
+              ]
+            },
+            "title": "Geometry",
+            "type": "array"
+          },
+          "display_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Display name of the object with no character restrictions. This is typically used to set the layer of the object in the interface that renders the VisualizationSet. A :: in the display_name can be used to denote sub-layers following a convention of ParentLayer::SubLayer. If not set, the display_name will be equal to the object identifier.",
+            "title": "Display Name"
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "ContextGeometry",
+            "default": "ContextGeometry",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "hidden": {
+            "default": false,
+            "description": "A boolean to note whether the geometry is hidden by default and must be un-hidden to be visible in the 3D scene.",
+            "title": "Hidden",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "identifier",
+          "geometry"
+        ],
+        "title": "ContextGeometry",
+        "type": "object"
+      },
+      "Cylinder": {
+        "additionalProperties": false,
+        "description": "A cylinder object.",
+        "properties": {
+          "center": {
+            "description": "The center of the bottom base of the cylinder as 3 (x, y, z) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Center",
+            "type": "array"
+          },
+          "axis": {
+            "description": "The vector representing the direction of the cylinder as 3 (x, y, z) values. The vector extends from the bottom base center to the top base center.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Axis",
+            "type": "array"
+          },
+          "radius": {
+            "description": "A number representing the radius of the cylinder.",
+            "exclusiveMinimum": 0,
+            "title": "Radius",
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "const": "Cylinder",
+            "default": "Cylinder",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "center",
+          "axis",
+          "radius"
+        ],
+        "title": "Cylinder",
+        "type": "object"
+      },
+      "DataType": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "data_type": {
+                "$ref": "#/components/schemas/DataTypes",
+                "description": "Text to indicate the type of data. This governs the behavior of the data type and the acceptable units. The DataTypes enumeration contains all acceptable types."
+              },
+              "name": {
+                "description": "Text to indicate how the data type displays. This can be more specific than the data_type.",
+                "title": "Name",
+                "type": "string"
+              },
+              "type": {
+                "const": "DataType",
+                "default": "DataType",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "data_type",
+              "name"
+            ]
+          }
+        ],
+        "description": "Data type representation.",
+        "title": "DataType"
+      },
+      "DataTypes": {
+        "enum": [
+          "ActivityLevel",
+          "AerosolOpticalDepth",
+          "AirSpeed",
+          "AirTemperature",
+          "AirTemperatureDelta",
+          "Albedo",
+          "Angle",
+          "Area",
+          "AtmosphericStationPressure",
+          "CeilingHeight",
+          "ClothingInsulation",
+          "ConvectionCoefficient",
+          "CoolingDegreeTime",
+          "Current",
+          "DewPointTemperature",
+          "DiffuseHorizontalIlluminance",
+          "DiffuseHorizontalIrradiance",
+          "DiffuseHorizontalRadiation",
+          "DirectHorizontalIrradiance",
+          "DirectHorizontalRadiation",
+          "DirectNormalIlluminance",
+          "DirectNormalIrradiance",
+          "DirectNormalRadiation",
+          "DiscomfortReason",
+          "Distance",
+          "DryBulbTemperature",
+          "EffectiveRadiantField",
+          "Energy",
+          "EnergyFlux",
+          "EnergyIntensity",
+          "Enthalpy",
+          "ExtraterrestrialDirectNormalRadiation",
+          "ExtraterrestrialHorizontalRadiation",
+          "Fraction",
+          "GlobalHorizontalIlluminance",
+          "GlobalHorizontalIrradiance",
+          "GlobalHorizontalRadiation",
+          "GroundTemperature",
+          "HeatingDegreeTime",
+          "HorizontalInfraredRadiationIntensity",
+          "HumidityRatio",
+          "Illuminance",
+          "Irradiance",
+          "LiquidPrecipitationDepth",
+          "LiquidPrecipitationQuantity",
+          "Luminance",
+          "Mass",
+          "MassFlowRate",
+          "MeanRadiantTemperature",
+          "MetabolicRate",
+          "OpaqueSkyCover",
+          "OperativeTemperature",
+          "OperativeTemperatureDelta",
+          "PercentagePeopleDissatisfied",
+          "Power",
+          "PrecipitableWater",
+          "PredictedMeanVote",
+          "Pressure",
+          "PrevailingOutdoorTemperature",
+          "RValue",
+          "RadiantCoefficient",
+          "RadiantTemperature",
+          "RadiantTemperatureDelta",
+          "Radiation",
+          "RelativeHumidity",
+          "SkyTemperature",
+          "SnowDepth",
+          "SpecificEnergy",
+          "Speed",
+          "StandardEffectiveTemperature",
+          "Temperature",
+          "TemperatureDelta",
+          "TemperatureTime",
+          "ThermalComfort",
+          "ThermalCondition",
+          "ThermalConditionElevenPoint",
+          "ThermalConditionFivePoint",
+          "ThermalConditionNinePoint",
+          "ThermalConditionSevenPoint",
+          "Time",
+          "TotalSkyCover",
+          "UTCICategory",
+          "UValue",
+          "UniversalThermalClimateIndex",
+          "Visibility",
+          "Voltage",
+          "Volume",
+          "VolumeFlowRate",
+          "VolumeFlowRateIntensity",
+          "WetBulbTemperature",
+          "WindDirection",
+          "WindSpeed",
+          "ZenithLuminance"
+        ],
+        "title": "DataTypes",
+        "type": "string"
+      },
+      "Default": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "Default",
+                "default": "Default",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false
+          }
+        ],
+        "description": "Object to signify when the default value of a visual interface should be used.",
+        "title": "Default"
+      },
+      "DisplayArc2D": {
+        "additionalProperties": false,
+        "description": "A single arc or circle in 2D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Arc2D",
+            "description": "Arc2D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "line_width": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Default"
+              },
+              {
+                "minimum": 0,
+                "type": "number"
+              }
+            ],
+            "default": {
+              "type": "Default"
+            },
+            "description": "Number for line width in pixels (for the screen) or millimeters (in print). Set to zero to hide the geometry.",
+            "title": "Line Width"
+          },
+          "line_type": {
+            "$ref": "#/components/schemas/LineTypes",
+            "default": "Continuous",
+            "description": "Text to indicate the type of line to display (dashed, dotted, etc.). The LineTypes enumeration contains all acceptable types."
+          },
+          "type": {
+            "const": "DisplayArc2D",
+            "default": "DisplayArc2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayArc2D",
+        "type": "object"
+      },
+      "DisplayArc3D": {
+        "additionalProperties": false,
+        "description": "A single arc or circle in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Arc3D",
+            "description": "Arc3D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "line_width": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Default"
+              },
+              {
+                "minimum": 0,
+                "type": "number"
+              }
+            ],
+            "default": {
+              "type": "Default"
+            },
+            "description": "Number for line width in pixels (for the screen) or millimeters (in print). Set to zero to hide the geometry.",
+            "title": "Line Width"
+          },
+          "line_type": {
+            "$ref": "#/components/schemas/LineTypes",
+            "default": "Continuous",
+            "description": "Text to indicate the type of line to display (dashed, dotted, etc.). The LineTypes enumeration contains all acceptable types."
+          },
+          "type": {
+            "const": "DisplayArc3D",
+            "default": "DisplayArc3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayArc3D",
+        "type": "object"
+      },
+      "DisplayCone": {
+        "additionalProperties": false,
+        "description": "A cone object with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Cone",
+            "description": "Cone for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayCone",
+            "default": "DisplayCone",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "display_mode": {
+            "$ref": "#/components/schemas/DisplayModes",
+            "default": "Surface",
+            "description": "Text to indicate the display mode (surface, wireframe, etc.). The DisplayModes enumeration contains all acceptable types."
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayCone",
+        "type": "object"
+      },
+      "DisplayCylinder": {
+        "additionalProperties": false,
+        "description": "A cylinder object with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Cylinder",
+            "description": "Cylinder for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayCylinder",
+            "default": "DisplayCylinder",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "display_mode": {
+            "$ref": "#/components/schemas/DisplayModes",
+            "default": "Surface",
+            "description": "Text to indicate the display mode (surface, wireframe, etc.). The DisplayModes enumeration contains all acceptable types."
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayCylinder",
+        "type": "object"
+      },
+      "DisplayFace3D": {
+        "additionalProperties": false,
+        "description": "A single planar face in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Face3D",
+            "description": "Face3D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayFace3D",
+            "default": "DisplayFace3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "display_mode": {
+            "$ref": "#/components/schemas/DisplayModes",
+            "default": "Surface",
+            "description": "Text to indicate the display mode (surface, wireframe, etc.). The DisplayModes enumeration contains all acceptable types."
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayFace3D",
+        "type": "object"
+      },
+      "DisplayLineSegment2D": {
+        "additionalProperties": false,
+        "description": "A single line segment face in 2D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/LineSegment2D",
+            "description": "LineSegment2D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "line_width": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Default"
+              },
+              {
+                "minimum": 0,
+                "type": "number"
+              }
+            ],
+            "default": {
+              "type": "Default"
+            },
+            "description": "Number for line width in pixels (for the screen) or millimeters (in print). Set to zero to hide the geometry.",
+            "title": "Line Width"
+          },
+          "line_type": {
+            "$ref": "#/components/schemas/LineTypes",
+            "default": "Continuous",
+            "description": "Text to indicate the type of line to display (dashed, dotted, etc.). The LineTypes enumeration contains all acceptable types."
+          },
+          "type": {
+            "const": "DisplayLineSegment2D",
+            "default": "DisplayLineSegment2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayLineSegment2D",
+        "type": "object"
+      },
+      "DisplayLineSegment3D": {
+        "additionalProperties": false,
+        "description": "A single line segment face in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/LineSegment3D",
+            "description": "LineSegment3D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "line_width": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Default"
+              },
+              {
+                "minimum": 0,
+                "type": "number"
+              }
+            ],
+            "default": {
+              "type": "Default"
+            },
+            "description": "Number for line width in pixels (for the screen) or millimeters (in print). Set to zero to hide the geometry.",
+            "title": "Line Width"
+          },
+          "line_type": {
+            "$ref": "#/components/schemas/LineTypes",
+            "default": "Continuous",
+            "description": "Text to indicate the type of line to display (dashed, dotted, etc.). The LineTypes enumeration contains all acceptable types."
+          },
+          "type": {
+            "const": "DisplayLineSegment3D",
+            "default": "DisplayLineSegment3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayLineSegment3D",
+        "type": "object"
+      },
+      "DisplayMesh2D": {
+        "additionalProperties": false,
+        "description": "A mesh in 2D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Mesh2D",
+            "description": "Mesh2D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayMesh2D",
+            "default": "DisplayMesh2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "display_mode": {
+            "$ref": "#/components/schemas/DisplayModes",
+            "default": "Surface",
+            "description": "Text to indicate the display mode (surface, wireframe, etc.). The DisplayModes enumeration contains all acceptable types."
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayMesh2D",
+        "type": "object"
+      },
+      "DisplayMesh3D": {
+        "additionalProperties": false,
+        "description": "A mesh in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Mesh3D",
+            "description": "Mesh3D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayMesh3D",
+            "default": "DisplayMesh3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "display_mode": {
+            "$ref": "#/components/schemas/DisplayModes",
+            "default": "Surface",
+            "description": "Text to indicate the display mode (surface, wireframe, etc.). The DisplayModes enumeration contains all acceptable types."
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayMesh3D",
+        "type": "object"
+      },
+      "DisplayModes": {
+        "enum": [
+          "Surface",
+          "SurfaceWithEdges",
+          "Wireframe",
+          "Points"
+        ],
+        "title": "DisplayModes",
+        "type": "string"
+      },
+      "DisplayPlane": {
+        "additionalProperties": false,
+        "description": "A plane object with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Plane",
+            "description": "Plane for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayPlane",
+            "default": "DisplayPlane",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "show_axes": {
+            "default": false,
+            "description": "A boolean to note whether the plane should be displayed with XY axes instead of just an origin point and a normal vector.",
+            "title": "Show Axes",
+            "type": "boolean"
+          },
+          "show_grid": {
+            "default": false,
+            "description": "A boolean to note whether the plane should be displayed with a grid.",
+            "title": "Show Grid",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayPlane",
+        "type": "object"
+      },
+      "DisplayPoint2D": {
+        "additionalProperties": false,
+        "description": "A point object in 2D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Point2D",
+            "description": "Point2D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayPoint2D",
+            "default": "DisplayPoint2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "radius": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Default"
+              },
+              {
+                "minimum": 0,
+                "type": "number"
+              }
+            ],
+            "default": {
+              "type": "Default"
+            },
+            "description": "Number for the radius with which the point should be displayed in pixels (for the screen) or millimeters (in print).",
+            "title": "Radius"
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayPoint2D",
+        "type": "object"
+      },
+      "DisplayPoint3D": {
+        "additionalProperties": false,
+        "description": "A point object in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Point3D",
+            "description": "Point3D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayPoint3D",
+            "default": "DisplayPoint3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "radius": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Default"
+              },
+              {
+                "minimum": 0,
+                "type": "number"
+              }
+            ],
+            "default": {
+              "type": "Default"
+            },
+            "description": "Number for the radius with which the point should be displayed in pixels (for the screen) or millimeters (in print).",
+            "title": "Radius"
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayPoint3D",
+        "type": "object"
+      },
+      "DisplayPolyface3D": {
+        "additionalProperties": false,
+        "description": "A Polyface in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Polyface3D",
+            "description": "Polyface3D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayPolyface3D",
+            "default": "DisplayPolyface3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "display_mode": {
+            "$ref": "#/components/schemas/DisplayModes",
+            "default": "Surface",
+            "description": "Text to indicate the display mode (surface, wireframe, etc.). The DisplayModes enumeration contains all acceptable types."
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayPolyface3D",
+        "type": "object"
+      },
+      "DisplayPolygon2D": {
+        "additionalProperties": false,
+        "description": "A single polygon in 2D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Polygon2D",
+            "description": "Polygon2D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "line_width": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Default"
+              },
+              {
+                "minimum": 0,
+                "type": "number"
+              }
+            ],
+            "default": {
+              "type": "Default"
+            },
+            "description": "Number for line width in pixels (for the screen) or millimeters (in print). Set to zero to hide the geometry.",
+            "title": "Line Width"
+          },
+          "line_type": {
+            "$ref": "#/components/schemas/LineTypes",
+            "default": "Continuous",
+            "description": "Text to indicate the type of line to display (dashed, dotted, etc.). The LineTypes enumeration contains all acceptable types."
+          },
+          "type": {
+            "const": "DisplayPolygon2D",
+            "default": "DisplayPolygon2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayPolygon2D",
+        "type": "object"
+      },
+      "DisplayPolyline2D": {
+        "additionalProperties": false,
+        "description": "A polyline in 2D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Polyline2D",
+            "description": "Polyline2D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "line_width": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Default"
+              },
+              {
+                "minimum": 0,
+                "type": "number"
+              }
+            ],
+            "default": {
+              "type": "Default"
+            },
+            "description": "Number for line width in pixels (for the screen) or millimeters (in print). Set to zero to hide the geometry.",
+            "title": "Line Width"
+          },
+          "line_type": {
+            "$ref": "#/components/schemas/LineTypes",
+            "default": "Continuous",
+            "description": "Text to indicate the type of line to display (dashed, dotted, etc.). The LineTypes enumeration contains all acceptable types."
+          },
+          "type": {
+            "const": "DisplayPolyline2D",
+            "default": "DisplayPolyline2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayPolyline2D",
+        "type": "object"
+      },
+      "DisplayPolyline3D": {
+        "additionalProperties": false,
+        "description": "A polyline in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Polyline3D",
+            "description": "Polyline3D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "line_width": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Default"
+              },
+              {
+                "minimum": 0,
+                "type": "number"
+              }
+            ],
+            "default": {
+              "type": "Default"
+            },
+            "description": "Number for line width in pixels (for the screen) or millimeters (in print). Set to zero to hide the geometry.",
+            "title": "Line Width"
+          },
+          "line_type": {
+            "$ref": "#/components/schemas/LineTypes",
+            "default": "Continuous",
+            "description": "Text to indicate the type of line to display (dashed, dotted, etc.). The LineTypes enumeration contains all acceptable types."
+          },
+          "type": {
+            "const": "DisplayPolyline3D",
+            "default": "DisplayPolyline3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayPolyline3D",
+        "type": "object"
+      },
+      "DisplayRay2D": {
+        "additionalProperties": false,
+        "description": "A ray object in 2D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Ray2D",
+            "description": "Ray2D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayRay2D",
+            "default": "DisplayRay2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayRay2D",
+        "type": "object"
+      },
+      "DisplayRay3D": {
+        "additionalProperties": false,
+        "description": "A ray object in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Ray3D",
+            "description": "Ray3D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayRay3D",
+            "default": "DisplayRay3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayRay3D",
+        "type": "object"
+      },
+      "DisplaySphere": {
+        "additionalProperties": false,
+        "description": "A sphere object with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Sphere",
+            "description": "Sphere for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplaySphere",
+            "default": "DisplaySphere",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "display_mode": {
+            "$ref": "#/components/schemas/DisplayModes",
+            "default": "Surface",
+            "description": "Text to indicate the display mode (surface, wireframe, etc.). The DisplayModes enumeration contains all acceptable types."
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplaySphere",
+        "type": "object"
+      },
+      "DisplayText3D": {
+        "additionalProperties": false,
+        "description": "A text object in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "text": {
+            "description": "A text string to be displayed in the 3D scene.",
+            "title": "Text",
+            "type": "string"
+          },
+          "plane": {
+            "$ref": "#/components/schemas/Plane",
+            "description": "A ladybug-geometry Plane object to locate and orient the text in the 3D scene."
+          },
+          "height": {
+            "description": "A number for the height of the text in the 3D scene.",
+            "exclusiveMinimum": 0,
+            "title": "Height",
+            "type": "number",
+            "format": "double"
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayText3D",
+            "default": "DisplayText3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "font": {
+            "default": "Arial",
+            "description": "A text string for the font in which to draw the text. Note that this field may not be interpreted the same on all machines and in all interfaces, particularly when a machine lacks a given font.",
+            "title": "Font",
+            "type": "string"
+          },
+          "horizontal_alignment": {
+            "$ref": "#/components/schemas/HorizontalAlignments",
+            "default": "Left",
+            "description": "String to specify the horizontal alignment of the text."
+          },
+          "vertical_alignment": {
+            "$ref": "#/components/schemas/VerticalAlignments",
+            "default": "Bottom",
+            "description": "String to specify the vertical alignment of the text."
+          }
+        },
+        "required": [
+          "color",
+          "text",
+          "plane",
+          "height"
+        ],
+        "title": "DisplayText3D",
+        "type": "object"
+      },
+      "DisplayVector2D": {
+        "additionalProperties": false,
+        "description": "A point object in 2D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Vector2D",
+            "description": "Vector2D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayVector2D",
+            "default": "DisplayVector2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayVector2D",
+        "type": "object"
+      },
+      "DisplayVector3D": {
+        "additionalProperties": false,
+        "description": "A point object in 3D space with display properties.",
+        "properties": {
+          "color": {
+            "$ref": "#/components/schemas/Color",
+            "description": "Color for the geometry."
+          },
+          "geometry": {
+            "$ref": "#/components/schemas/Vector3D",
+            "description": "Vector3D for the geometry."
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          },
+          "type": {
+            "const": "DisplayVector3D",
+            "default": "DisplayVector3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "color",
+          "geometry"
+        ],
+        "title": "DisplayVector3D",
+        "type": "object"
+      },
+      "Face3D": {
+        "additionalProperties": false,
+        "description": "A single planar face in 3D space.",
+        "properties": {
+          "boundary": {
+            "description": "A list of points representing the outer boundary vertices of the face. The list should include at least 3 points and each point should be a list of 3 (x, y, z) values.",
+            "items": {
+              "items": {
+                "type": "number",
+                "format": "double"
+              },
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array"
+            },
+            "minItems": 3,
+            "title": "Boundary",
+            "type": "array"
+          },
+          "type": {
+            "const": "Face3D",
+            "default": "Face3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "holes": {
+            "anyOf": [
+              {
+                "items": {
+                  "items": {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 3,
+                    "minItems": 3,
+                    "type": "array"
+                  },
+                  "minItems": 3,
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional list of lists with one list for each hole in the face.Each hole should be a list of at least 3 points and each point a list of 3 (x, y, z) values. If None, it will be assumed that there are no holes in the face.",
+            "title": "Holes"
+          },
+          "plane": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Plane"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional Plane indicating the plane in which the face exists.If None, the plane will usually be derived from the boundary points."
+          }
+        },
+        "required": [
+          "boundary"
+        ],
+        "title": "Face3D",
+        "type": "object"
+      },
+      "GenericDataType": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "required": [
+              "name",
+              "base_unit"
+            ],
+            "properties": {
+              "name": {
+                "description": "Text to indicate how the data type displays. This can be more specific than the data_type.",
+                "title": "Name",
+                "type": "string"
+              },
+              "base_unit": {
+                "description": "Text string for the base unit of the data type, which should be standard SI units where possible.",
+                "title": "Base Unit",
+                "type": "string"
+              },
+              "data_type": {
+                "const": "GenericType",
+                "default": "GenericType",
+                "title": "Data Type",
+                "type": "string"
+              },
+              "min": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "Optional lower limit for the data type, values below which should be physically or mathematically impossible. (Default: -inf)",
+                "title": "Min"
+              },
+              "max": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "Optional upper limit for the data type, values above which should be physically or mathematically impossible. (Default: +inf)",
+                "title": "Max"
+              },
+              "abbreviation": {
+                "default": "",
+                "description": "An optional abbreviation for the data type as text.",
+                "title": "Abbreviation",
+                "type": "string"
+              },
+              "unit_descr": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "An optional dictionary describing categories that the numerical values of the units relate to. For example: {-1: \"Cold\", 0: \"Neutral\", +1: \"Hot\"}; {0: \"False\", 1: \"True\"}.",
+                "title": "Unit Descr"
+              },
+              "point_in_time": {
+                "default": true,
+                "description": "Boolean to note whether the data type represents conditions at a single instant in time (True) as opposed to being an average or accumulation over time (False) when it is found in hourly lists of data.",
+                "title": "Point In Time",
+                "type": "boolean"
+              },
+              "cumulative": {
+                "default": false,
+                "description": "Boolean to tell whether the data type can be cumulative when it is represented over time (True) or it can only be averaged over time to be meaningful (False). Note that cumulative cannot be True when point_in_time is also True.",
+                "title": "Cumulative",
+                "type": "boolean"
+              },
+              "type": {
+                "const": "GenericDataType",
+                "default": "GenericDataType",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false
+          }
+        ],
+        "description": "Generic data type representation.",
+        "title": "GenericDataType"
+      },
+      "HorizontalAlignments": {
+        "enum": [
+          "Left",
+          "Center",
+          "Right"
+        ],
+        "title": "HorizontalAlignments",
+        "type": "string"
+      },
+      "Legend2DParameters": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "Legend2DParameters",
+                "default": "Legend2DParameters",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "origin_x": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A text string to note the X coordinate of the base point from where the legend will be generated (assuming an origin in the upper-left corner of the viewport with higher positive values of X moving to the right). Text must be formatted as an integer followed by either \"px\" (to denote the number of viewport pixels) or \"%\" (to denote the percentage of the viewport width). Examples include 10px, 5%. The default is set to make the legend clearly visible on the viewport (usually 10px).",
+                "title": "Origin X"
+              },
+              "origin_y": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A text string to note the Y coordinate of the base point from where the legend will be generated (assuming an origin in the upper-left corner of the viewport with higher positive values of Y moving downward). Text must be formatted as an integer followed by either \"px\" (to denote the number of viewport pixels) or \"%\" (to denote the percentage of the viewport height). Examples include 10px, 5%. The default is set to make the legend clearly visible on the viewport (usually 50px).",
+                "title": "Origin Y"
+              },
+              "segment_height": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A text string to note the height for each of the legend segments. Text must be formatted as an integer followed by either \"px\" (to denote the number of viewport pixels) or \"%\" (to denote the percentage of the viewport height). Examples include 10px, 5%. The default is set to make most legends readable (25px for horizontal legends and 36px for vertical legends).",
+                "title": "Segment Height"
+              },
+              "segment_width": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A text string to set the width for each of the legend segments. Text must be formatted as an integer followed by either \"px\" (to denote the number of viewport pixels) or \"%\" (to denote the percentage of the viewport width). Examples include 10px, 5%. The default is set to make most legends readable (36px for horizontal legends and 25px for vertical legends).",
+                "title": "Segment Width"
+              },
+              "text_height": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A text string to set the height for the legend text. Text must be formatted as an integer followed by either \"px\" (to denote the number of viewport pixels) or \"%\" (to denote the percentage of the viewport height). Examples include 10px, 5%. Default is 1/3 of the segment_height. Default is 12px.",
+                "title": "Text Height"
+              }
+            },
+            "additionalProperties": false
+          }
+        ],
+        "title": "Legend2DParameters"
+      },
+      "Legend3DParameters": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "Legend3DParameters",
+                "default": "Legend3DParameters",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "base_plane": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Plane"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "A Ladybug Plane object to note the starting position from where the legend will be generated. The default is the world XY plane at origin (0, 0, 0) unless the legend is assigned to a specific geometry, in which case the origin is in the lower right corner of the geometry bounding box for vertical legends and the upper right corner for horizontal legends."
+              },
+              "segment_height": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A number to set the height for each of the legend segments. The default is 1 unless the legend is assigned to a specific geometry, in which case it is automatically set to a value on an appropriate scale (some fraction of the bounding box around the geometry).",
+                "title": "Segment Height"
+              },
+              "segment_width": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A number to set the width for each of the legend segments. The default is 1 unless the legend is assigned to a specific geometry, in which case it is automatically set to a value on an appropriate scale (some fraction of the bounding box around the geometry).",
+                "title": "Segment Width"
+              },
+              "text_height": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A number to set the height for the legend text. Default is 1/3 of the segment_height.",
+                "title": "Text Height"
+              }
+            },
+            "additionalProperties": false
+          }
+        ],
+        "title": "Legend3DParameters"
+      },
+      "LegendParameters": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "LegendParameters",
+                "default": "LegendParameters",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "min": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A number to set the lower boundary of the legend. If Default, the minimum of the values associated with the legend will be used.",
+                "title": "Min"
+              },
+              "max": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "A number to set the upper boundary of the legend. If Default, the maximum of the values associated with the legend will be used.",
+                "title": "Max"
+              },
+              "segment_count": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Default"
+                  },
+                  {
+                    "minimum": 1,
+                    "type": "integer"
+                  }
+                ],
+                "default": {
+                  "type": "Default"
+                },
+                "description": "An integer representing the number of steps between the high and low boundary of the legend. The default is set to 11 or it will be equal to the number of items in the ordinal_dictionary. Any custom values input in here should always be greater than or equal to 1.",
+                "title": "Segment Count"
+              },
+              "colors": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "$ref": "#/components/schemas/Color"
+                    },
+                    "minItems": 2,
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "An list of color objects. Default is the Ladybug original colorset.",
+                "title": "Colors"
+              },
+              "title": {
+                "default": "",
+                "description": "Text string for Legend title. Typically, the units of the data are used here but the type of data might also be used.",
+                "title": "Title",
+                "type": "string"
+              },
+              "continuous_legend": {
+                "default": false,
+                "description": "Boolean noting whether legend is drawn as a gradient or discrete segments.",
+                "title": "Continuous Legend",
+                "type": "boolean"
+              },
+              "ordinal_dictionary": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Optional dictionary that maps values to text categories. If None, numerical values will be used for the legend segments. If not, text categories will be used and the legend will be ordinal. Note that, if the number of items in the dictionary are less than the segment_count, some segments will not receive any label. Examples for possible dictionaries include: {-1: \"Cold\", 0: \"Neutral\", 1: \"Hot\"}, {0: \"False\", 1: \"True\"}",
+                "title": "Ordinal Dictionary"
+              },
+              "decimal_count": {
+                "default": 2,
+                "description": "An an integer for the number of decimal places in the legend text. Note that this input has no bearing on the resulting legend text when an ordinal_dictionary is present.",
+                "minimum": 0,
+                "title": "Decimal Count",
+                "type": "integer",
+                "format": "int32"
+              },
+              "include_larger_smaller": {
+                "default": false,
+                "description": "Boolean noting whether > and < should be included in legend segment text.",
+                "title": "Include Larger Smaller",
+                "type": "boolean"
+              },
+              "vertical": {
+                "default": true,
+                "description": "Boolean noting whether legend is vertical (True) or horizontal (False).",
+                "title": "Vertical",
+                "type": "boolean"
+              },
+              "font": {
+                "default": "Arial",
+                "description": "Text string to set the font for the legend text. Examples include \"Arial\", \"Times New Roman\", \"Courier\". Note that this parameter may not have an effect on certain interfaces that have limited access to fonts.",
+                "title": "Font",
+                "type": "string"
+              },
+              "properties_3d": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Legend3DParameters"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "A Legend3DParameters object to specify the dimensional properties of the legend when it is rendered in the 3D environment of the geometry scene."
+              },
+              "properties_2d": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Legend2DParameters"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "A Legend2DParameters object to specify the dimensional properties of the legend when it is rendered in the 2D plane of a screen."
+              },
+              "user_data": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+                "title": "User Data"
+              }
+            },
+            "additionalProperties": false
+          }
+        ],
+        "description": "Legend parameters used to customize legends.",
+        "title": "LegendParameters"
+      },
+      "LineSegment2D": {
+        "additionalProperties": false,
+        "description": "A single line segment face in 2D space.",
+        "properties": {
+          "p": {
+            "description": "Line segment base point as 2 (x, y) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "P",
+            "type": "array"
+          },
+          "v": {
+            "description": "Line segment direction vector as 2 (x, y) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "V",
+            "type": "array"
+          },
+          "type": {
+            "const": "LineSegment2D",
+            "default": "LineSegment2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "p",
+          "v"
+        ],
+        "title": "LineSegment2D",
+        "type": "object"
+      },
+      "LineSegment3D": {
+        "additionalProperties": false,
+        "description": "A single line segment face in 3D space.",
+        "properties": {
+          "p": {
+            "description": "Line segment base point as 3 (x, y, z) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "P",
+            "type": "array"
+          },
+          "v": {
+            "description": "Line segment direction vector as 3 (x, y, z) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "V",
+            "type": "array"
+          },
+          "type": {
+            "const": "LineSegment3D",
+            "default": "LineSegment3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "p",
+          "v"
+        ],
+        "title": "LineSegment3D",
+        "type": "object"
+      },
+      "LineTypes": {
+        "enum": [
+          "Continuous",
+          "Dashed",
+          "Dotted",
+          "DashDot"
+        ],
+        "title": "LineTypes",
+        "type": "string"
+      },
+      "Mesh2D": {
+        "additionalProperties": false,
+        "description": "A mesh in 2D space.",
+        "properties": {
+          "vertices": {
+            "description": "A list of points representing the vertices of the mesh. The list should include at least 3 points and each point should be a list of 2 (x, y) values.",
+            "items": {
+              "items": {
+                "type": "number",
+                "format": "double"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "minItems": 3,
+            "title": "Vertices",
+            "type": "array"
+          },
+          "faces": {
+            "description": "A list of lists with each sub-list having either 3 or 4 integers. These integers correspond to indices within the list of vertices.",
+            "items": {
+              "items": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              },
+              "maxItems": 4,
+              "minItems": 3,
+              "type": "array"
+            },
+            "minItems": 1,
+            "title": "Faces",
+            "type": "array"
+          },
+          "type": {
+            "const": "Mesh2D",
+            "default": "Mesh2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "colors": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Color"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "An optional list of colors that correspond to either the faces of the mesh or the vertices of the mesh.",
+            "title": "Colors"
+          }
+        },
+        "required": [
+          "vertices",
+          "faces"
+        ],
+        "title": "Mesh2D",
+        "type": "object"
+      },
+      "Mesh3D": {
+        "additionalProperties": false,
+        "description": "A mesh in 3D space.",
+        "properties": {
+          "vertices": {
+            "description": "A list of points representing the vertices of the mesh. The list should include at least 3 points and each point should be a list of 3 (x, y, z) values.",
+            "items": {
+              "items": {
+                "type": "number",
+                "format": "double"
+              },
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array"
+            },
+            "minItems": 3,
+            "title": "Vertices",
+            "type": "array"
+          },
+          "faces": {
+            "description": "A list of lists with each sub-list having either 3 or 4 integers. These integers correspond to indices within the list of vertices.",
+            "items": {
+              "items": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              },
+              "maxItems": 4,
+              "minItems": 3,
+              "type": "array"
+            },
+            "minItems": 1,
+            "title": "Faces",
+            "type": "array"
+          },
+          "type": {
+            "const": "Mesh3D",
+            "default": "Mesh3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "colors": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Color"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "An optional list of colors that correspond to either the faces of the mesh or the vertices of the mesh.",
+            "title": "Colors"
+          }
+        },
+        "required": [
+          "vertices",
+          "faces"
+        ],
+        "title": "Mesh3D",
+        "type": "object"
+      },
+      "Plane": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "n": {
+                "description": "Plane normal as 3 (x, y, z) values.",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "N",
+                "type": "array"
+              },
+              "o": {
+                "description": "Plane origin as 3 (x, y, z) values",
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                },
+                "maxItems": 3,
+                "minItems": 3,
+                "title": "O",
+                "type": "array"
+              },
+              "type": {
+                "const": "Plane",
+                "default": "Plane",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "x": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "type": "number"
+                    },
+                    "maxItems": 3,
+                    "minItems": 3,
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Plane x-axis as 3 (x, y, z) values. If None, it is autocalculated.",
+                "title": "X"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "n",
+              "o"
+            ]
+          }
+        ],
+        "description": "A plane object.",
+        "title": "Plane"
+      },
+      "Point2D": {
+        "additionalProperties": false,
+        "description": "A point object in 2D space.",
+        "properties": {
+          "x": {
+            "description": "Number for X coordinate.",
+            "title": "X",
+            "type": "number",
+            "format": "double"
+          },
+          "y": {
+            "description": "Number for Y coordinate.",
+            "title": "Y",
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "const": "Point2D",
+            "default": "Point2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ],
+        "title": "Point2D",
+        "type": "object"
+      },
+      "Point3D": {
+        "additionalProperties": false,
+        "description": "A point object in 3D space.",
+        "properties": {
+          "x": {
+            "description": "Number for X coordinate.",
+            "title": "X",
+            "type": "number",
+            "format": "double"
+          },
+          "y": {
+            "description": "Number for Y coordinate.",
+            "title": "Y",
+            "type": "number",
+            "format": "double"
+          },
+          "z": {
+            "description": "Number for Z coordinate.",
+            "title": "Z",
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "const": "Point3D",
+            "default": "Point3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "x",
+          "y",
+          "z"
+        ],
+        "title": "Point3D",
+        "type": "object"
+      },
+      "Polyface3D": {
+        "additionalProperties": false,
+        "description": "A Polyface in 3D space.",
+        "properties": {
+          "vertices": {
+            "description": "A list of points representing the vertices of the polyface. The list should include at least 3 points and each point should be a list of 3 (x, y, z) values.",
+            "items": {
+              "items": {
+                "type": "number",
+                "format": "double"
+              },
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array"
+            },
+            "minItems": 3,
+            "title": "Vertices",
+            "type": "array"
+          },
+          "face_indices": {
+            "description": "A list of lists with one list for each face of the polyface. Each face list must contain at least one sub-list of integers corresponding to indices within the vertices list. Additional sub-lists of integers may follow this one such that the first sub-list denotes the boundary of the face while each subsequent sub-list denotes a hole in the face.",
+            "items": {
+              "items": {
+                "items": {
+                  "minimum": 0,
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "minItems": 3,
+                "type": "array"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "minItems": 1,
+            "title": "Face Indices",
+            "type": "array"
+          },
+          "type": {
+            "const": "Polyface3D",
+            "default": "Polyface3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "edge_information": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PolyfaceEdgeInfo"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional edge information, which will speed up the creation of the Polyface object if it is available but should be left as None if it is unknown. If None, edge_information will be computed from the vertices and face_indices inputs."
+          }
+        },
+        "required": [
+          "vertices",
+          "face_indices"
+        ],
+        "title": "Polyface3D",
+        "type": "object"
+      },
+      "PolyfaceEdgeInfo": {
+        "additionalProperties": false,
+        "description": "Optional edge information for Polyface.",
+        "properties": {
+          "edge_indices": {
+            "description": "An array objects that each contain two integers. These integers correspond to indices within the vertices list and each tuple represents a line segment for an edge of the polyface.",
+            "items": {
+              "items": {
+                "minimum": 0,
+                "type": "integer",
+                "format": "int32"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "minItems": 3,
+            "title": "Edge Indices",
+            "type": "array"
+          },
+          "edge_types": {
+            "description": "An array of integers for each edge that parallels the edge_indices list. An integer of 0 denotes a naked edge, an integer of 1 denotes an internal edge. Anything higher is a non-manifold edge.",
+            "items": {
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            },
+            "minItems": 3,
+            "title": "Edge Types",
+            "type": "array"
+          },
+          "type": {
+            "title": "Type",
+            "default": "PolyfaceEdgeInfo",
+            "type": "string",
+            "pattern": "^PolyfaceEdgeInfo$",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "edge_indices",
+          "edge_types"
+        ],
+        "title": "PolyfaceEdgeInfo",
+        "type": "object"
+      },
+      "Polygon2D": {
+        "additionalProperties": false,
+        "description": "A polygon in 2D space (without holes).",
+        "properties": {
+          "vertices": {
+            "description": "A list of points representing the vertices of the polygon. The list should include at least 3 points and each point should be a list of 2 (x, y) values.",
+            "items": {
+              "items": {
+                "type": "number",
+                "format": "double"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "minItems": 3,
+            "title": "Vertices",
+            "type": "array"
+          },
+          "type": {
+            "const": "Polygon2D",
+            "default": "Polygon2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "vertices"
+        ],
+        "title": "Polygon2D",
+        "type": "object"
+      },
+      "Polyline2D": {
+        "additionalProperties": false,
+        "description": "A polyline in 2D space.",
+        "properties": {
+          "vertices": {
+            "description": "A list of points representing the the vertices of the polyline. The list should include at least 3 points and each point should be a list of 2 (x, y) values.",
+            "items": {
+              "items": {
+                "type": "number",
+                "format": "double"
+              },
+              "maxItems": 2,
+              "minItems": 2,
+              "type": "array"
+            },
+            "minItems": 3,
+            "title": "Vertices",
+            "type": "array"
+          },
+          "type": {
+            "const": "Polyline2D",
+            "default": "Polyline2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "interpolated": {
+            "default": false,
+            "description": "A boolean to note whether the polyline should be interpolated between the input vertices when it is translated to other interfaces.",
+            "title": "Interpolated",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "vertices"
+        ],
+        "title": "Polyline2D",
+        "type": "object"
+      },
+      "Polyline3D": {
+        "additionalProperties": false,
+        "description": "A polyline in 3D space.",
+        "properties": {
+          "vertices": {
+            "description": "A list of points representing the the vertices of the polyline. The list should include at least 3 points and each point should be a list of 3 (x, y, z) values.",
+            "items": {
+              "items": {
+                "type": "number",
+                "format": "double"
+              },
+              "maxItems": 3,
+              "minItems": 3,
+              "type": "array"
+            },
+            "minItems": 3,
+            "title": "Vertices",
+            "type": "array"
+          },
+          "type": {
+            "const": "Polyline3D",
+            "default": "Polyline3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "interpolated": {
+            "default": false,
+            "description": "A boolean to note whether the polyline should be interpolated between the input vertices when it is translated to other interfaces.",
+            "title": "Interpolated",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "vertices"
+        ],
+        "title": "Polyline3D",
+        "type": "object"
+      },
+      "Ray2D": {
+        "additionalProperties": false,
+        "description": "A ray object in 2D space.",
+        "properties": {
+          "p": {
+            "description": "Ray base point as 2 (x, y) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "P",
+            "type": "array"
+          },
+          "v": {
+            "description": "Ray direction vector as 2 (x, y) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 2,
+            "minItems": 2,
+            "title": "V",
+            "type": "array"
+          },
+          "type": {
+            "const": "Ray2D",
+            "default": "Ray2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "p",
+          "v"
+        ],
+        "title": "Ray2D",
+        "type": "object"
+      },
+      "Ray3D": {
+        "additionalProperties": false,
+        "description": "A ray object in 3D space.",
+        "properties": {
+          "p": {
+            "description": "Ray base point as 3 (x, y, z) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "P",
+            "type": "array"
+          },
+          "v": {
+            "description": "Ray direction vector as 3 (x, y, z) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "V",
+            "type": "array"
+          },
+          "type": {
+            "const": "Ray3D",
+            "default": "Ray3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "p",
+          "v"
+        ],
+        "title": "Ray3D",
+        "type": "object"
+      },
+      "Sphere": {
+        "additionalProperties": false,
+        "description": "A sphere object.",
+        "properties": {
+          "center": {
+            "description": "The center of the sphere as 3 (x, y, z) values.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "maxItems": 3,
+            "minItems": 3,
+            "title": "Center",
+            "type": "array"
+          },
+          "radius": {
+            "description": "A number representing the radius of the sphere.",
+            "exclusiveMinimum": 0,
+            "title": "Radius",
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "const": "Sphere",
+            "default": "Sphere",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "center",
+          "radius"
+        ],
+        "title": "Sphere",
+        "type": "object"
+      },
+      "Units": {
+        "enum": [
+          "Meters",
+          "Millimeters",
+          "Feet",
+          "Inches",
+          "Centimeters"
+        ],
+        "title": "Units",
+        "type": "string"
+      },
+      "Vector2D": {
+        "additionalProperties": false,
+        "description": "A vector object in 2D space.",
+        "properties": {
+          "x": {
+            "description": "Number for X coordinate.",
+            "title": "X",
+            "type": "number",
+            "format": "double"
+          },
+          "y": {
+            "description": "Number for Y coordinate.",
+            "title": "Y",
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "const": "Vector2D",
+            "default": "Vector2D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "x",
+          "y"
+        ],
+        "title": "Vector2D",
+        "type": "object"
+      },
+      "Vector3D": {
+        "additionalProperties": false,
+        "description": "A vector object in 3D space.",
+        "properties": {
+          "x": {
+            "description": "Number for X coordinate.",
+            "title": "X",
+            "type": "number",
+            "format": "double"
+          },
+          "y": {
+            "description": "Number for Y coordinate.",
+            "title": "Y",
+            "type": "number",
+            "format": "double"
+          },
+          "z": {
+            "description": "Number for Z coordinate.",
+            "title": "Z",
+            "type": "number",
+            "format": "double"
+          },
+          "type": {
+            "const": "Vector3D",
+            "default": "Vector3D",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "x",
+          "y",
+          "z"
+        ],
+        "title": "Vector3D",
+        "type": "object"
+      },
+      "VerticalAlignments": {
+        "enum": [
+          "Top",
+          "Middle",
+          "Bottom"
+        ],
+        "title": "VerticalAlignments",
+        "type": "string"
+      },
+      "VisualizationData": {
+        "additionalProperties": false,
+        "description": "Represents a data set for visualization with legend parameters and data type.",
+        "properties": {
+          "values": {
+            "description": "A list of numerical values that will be used to generate the visualization colors.",
+            "items": {
+              "type": "number",
+              "format": "double"
+            },
+            "minItems": 1,
+            "title": "Values",
+            "type": "array"
+          },
+          "type": {
+            "const": "VisualizationData",
+            "default": "VisualizationData",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          },
+          "legend_parameters": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LegendParameters"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "An Optional LegendParameters object to override default parameters of the legend. None indicates that default legend parameters will be used."
+          },
+          "data_type": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/DataType"
+              },
+              {
+                "$ref": "#/components/schemas/GenericDataType"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional DataType from the ladybug datatype subpackage (ie. Temperature()) , which will be used to assign default legend properties. If None, the legend associated with this object will contain no units unless a unit below is specified.",
+            "title": "Data Type"
+          },
+          "unit": {
+            "default": "",
+            "description": "Optional text string for the units of the values. (ie. \"C\"). If None, the default units of the data_type will be used.",
+            "title": "Unit",
+            "type": "string"
+          },
+          "user_data": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+            "title": "User Data"
+          }
+        },
+        "required": [
+          "values"
+        ],
+        "title": "VisualizationData",
+        "type": "object"
+      },
+      "VisualizationMetaData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "type": {
+                "const": "VisualizationMetaData",
+                "default": "VisualizationMetaData",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              },
+              "legend_parameters": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/LegendParameters"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "An Optional LegendParameters object to override default parameters of the legend. None indicates that default legend parameters will be used."
+              },
+              "data_type": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/DataType"
+                  },
+                  {
+                    "$ref": "#/components/schemas/GenericDataType"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Optional DataType from the ladybug datatype subpackage (ie. Temperature()) , which will be used to assign default legend properties. If None, the legend associated with this object will contain no units unless a unit below is specified.",
+                "title": "Data Type"
+              },
+              "unit": {
+                "default": "",
+                "description": "Optional text string for the units of the values. (ie. \"C\"). If None, the default units of the data_type will be used.",
+                "title": "Unit",
+                "type": "string"
+              },
+              "user_data": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+                "title": "User Data"
+              }
+            },
+            "additionalProperties": false
+          }
+        ],
+        "description": "Represents the visualization metadata that can be assigned to VisualizationData.\n    ",
+        "title": "VisualizationMetaData"
+      },
+      "VisualizationSet": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "required": [
+              "identifier"
+            ],
+            "properties": {
+              "identifier": {
+                "description": "Text string for a unique object ID. Must be less than 100 characters and not contain spaces or special characters.",
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^[.A-Za-z0-9_-]+$",
+                "title": "Identifier",
+                "type": "string"
+              },
+              "display_name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Display name of the object with no character restrictions. This is typically used to set the layer of the object in the interface that renders the VisualizationSet. A :: in the display_name can be used to denote sub-layers following a convention of ParentLayer::SubLayer. If not set, the display_name will be equal to the object identifier.",
+                "title": "Display Name"
+              },
+              "user_data": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+                "title": "User Data"
+              },
+              "geometry": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/components/schemas/AnalysisGeometry"
+                        },
+                        {
+                          "$ref": "#/components/schemas/ContextGeometry"
+                        }
+                      ]
+                    },
+                    "type": "array"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "A list of AnalysisGeometry and ContextGeometry objects to display in the visualization. Each geometry object will typically be translated to its own layer within the interface that renders the VisualizationSet.",
+                "title": "Geometry"
+              },
+              "units": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/Units"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Text indicating the units in which the model geometry exists. If None, the geometry will always be assumed to be in the current units system of the display interface."
+              },
+              "type": {
+                "const": "VisualizationSet",
+                "default": "VisualizationSet",
+                "title": "Type",
+                "type": "string",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false
+          }
+        ],
+        "description": "A visualization set containing analysis and context geometry to be visualized.",
+        "title": "VisualizationSet"
+      },
+      "_VisualizationBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/_OpenAPIGenBaseModel"
+          },
+          {
+            "type": "object",
+            "properties": {
+              "identifier": {
+                "description": "Text string for a unique object ID. Must be less than 100 characters and not contain spaces or special characters.",
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^[.A-Za-z0-9_-]+$",
+                "title": "Identifier",
+                "type": "string"
+              },
+              "display_name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Display name of the object with no character restrictions. This is typically used to set the layer of the object in the interface that renders the VisualizationSet. A :: in the display_name can be used to denote sub-layers following a convention of ParentLayer::SubLayer. If not set, the display_name will be equal to the object identifier.",
+                "title": "Display Name"
+              },
+              "user_data": {
+                "anyOf": [
+                  {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "description": "Optional dictionary of user data associated with the object.All keys and values of this dictionary should be of a standard data type to ensure correct serialization of the object (eg. str, float, int, list).",
+                "title": "User Data"
+              },
+              "type": {
+                "title": "Type",
+                "default": "_VisualizationBase",
+                "type": "string",
+                "pattern": "^_VisualizationBase$",
+                "readOnly": true
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "identifier"
+            ]
+          }
+        ],
+        "description": "Base class for visualization objects.",
+        "title": "_VisualizationBase"
+      },
+      "_OpenAPIGenBaseModel": {
+        "properties": {
+          "type": {
+            "default": "InvalidType",
+            "description": "A base class to use when there is no baseclass available to fall on.",
+            "title": "Type",
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "title": "_OpenAPIGenBaseModel",
+        "type": "object"
+      }
+    }
+  }
+}
